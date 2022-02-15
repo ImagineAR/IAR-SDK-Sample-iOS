@@ -1,0 +1,118 @@
+# Xcode
+# Build, test, and archive an Xcode workspace on macOS.
+# Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
+
+pool:
+  vmImage: 'macos-11'
+
+#CI Trigger
+trigger: none
+
+#PR Trigger
+pr:
+  branches:
+    include:
+    - master
+    - develop
+
+steps:
+
+- task: DownloadSecureFile@1
+  name: gitPrivkey
+  displayName: 'Download BB Privkey certificate'
+  inputs:
+    secureFile: 'azureCI'
+
+- script: |
+    echo Installing $(gitPrivkey.secureFilePath) to the home directory...
+    sudo cp $(gitPrivkey.secureFilePath) ~/.ssh/id_rsa
+
+- task: DownloadSecureFile@1
+  name: gitPubkey
+  displayName: 'Download BB Pubkey certificate'
+  inputs:
+    secureFile: 'azureCI.pub'
+
+- script: |
+    echo Installing $(gitPubkey.secureFilePath) to the home directory...
+    if [ ! -n "$(grep "^bitbucket.org " ~/.ssh/known_hosts)" ]; then ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts 2>/dev/null; fi
+    sudo cp $(gitPrivkey.secureFilePath) ~/.ssh/azureCI
+    sudo cp $(gitPubkey.secureFilePath) ~/.ssh/azureCI.pub
+    chmod 600 ~/.ssh/azureCI
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/azureCI
+
+- script: |
+    echo Add private specs to source control...
+    pod repo add IAR-Beta https://github.com/ImagineAR/IAR-SDK-Beta-Podspecs.git
+
+- checkout: self
+  submodules: true
+
+- task: Bash@3
+  inputs:
+    filePath: 'Scripts/setup-environment.sh'
+
+# Run tests and build "Target"
+- task: Xcode@5
+  inputs:
+    actions: 'test'
+    packageApp: false
+    xcWorkspacePath: 'IAR-TargetSDK-Sample/IAR-TargetSDK-Sample.xcworkspace'
+    scheme: 'IAR-TargetSDK-Sample'
+    sdk: 'iphonesimulator'
+    configuration: 'Debug'
+    destinationPlatformOption: 'iOS'
+    destinationSimulators: 'iPhone 13'
+    
+- task: Xcode@5
+  inputs:
+    actions: 'build'
+    scheme: 'IAR-TargetSDK-Sample'
+    sdk: 'iphoneos'
+    configuration: 'Release'
+    xcWorkspacePath: 'IAR-TargetSDK-Sample/IAR-TargetSDK-Sample.xcworkspace'
+    xcodeVersion: 'default'
+
+# Run tests and build "Core"
+- task: Xcode@5
+  inputs:
+    actions: 'test'
+    packageApp: false
+    xcWorkspacePath: 'IAR-CoreSDK-Sample/IAR-CoreSDK-Sample.xcworkspace'
+    scheme: 'IAR-CoreSDK-Sample'
+    sdk: 'iphonesimulator'
+    configuration: 'Debug'
+    destinationPlatformOption: 'iOS'
+    destinationSimulators: 'iPhone 13'
+    
+- task: Xcode@5
+  inputs:
+    actions: 'build'
+    scheme: 'IAR-CoreSDK-Sample'
+    sdk: 'iphoneos'
+    configuration: 'Release'
+    xcWorkspacePath: 'IAR-CoreSDK-Sample/IAR-CoreSDK-Sample.xcworkspace'
+    xcodeVersion: 'default'
+
+# Run tests and build "Surface"
+- task: Xcode@5
+  inputs:
+    actions: 'test'
+    packageApp: false
+    xcWorkspacePath: 'IAR-SurfaceSDK-Sample/IAR-SurfaceSDK-Sample.xcworkspace'
+    scheme: 'IAR-SurfaceSDK-Sample'
+    sdk: 'iphonesimulator'
+    configuration: 'Debug'
+    destinationPlatformOption: 'iOS'
+    destinationSimulators: 'iPhone 13'
+    
+- task: Xcode@5
+  inputs:
+    actions: 'build'
+    scheme: 'IAR-SurfaceSDK-Sample'
+    sdk: 'iphoneos'
+    configuration: 'Release'
+    xcWorkspacePath: 'IAR-SurfaceSDK-Sample/IAR-SurfaceSDK-Sample.xcworkspace'
+    xcodeVersion: 'default'

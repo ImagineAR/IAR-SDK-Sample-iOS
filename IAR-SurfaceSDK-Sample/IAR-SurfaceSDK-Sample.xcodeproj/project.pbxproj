@@ -1,0 +1,1074 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2BBBD5D5143D4CF21BD3CF4E /* Pods_IAR_SurfaceSDK_SampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5521453C86E89F9D5673772 /* Pods_IAR_SurfaceSDK_SampleTests.framework */; };
+		4853EA65278647120067B6A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4853EA64278647120067B6A8 /* AppDelegate.swift */; };
+		4853EA67278647120067B6A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4853EA66278647120067B6A8 /* SceneDelegate.swift */; };
+		4853EA69278647120067B6A8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4853EA68278647120067B6A8 /* MainViewController.swift */; };
+		4853EA6C278647120067B6A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4853EA6A278647120067B6A8 /* Main.storyboard */; };
+		4853EA6E278647130067B6A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4853EA6D278647130067B6A8 /* Assets.xcassets */; };
+		4853EA71278647130067B6A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4853EA6F278647130067B6A8 /* LaunchScreen.storyboard */; };
+		4853EA7C278647130067B6A8 /* MainViewControllerSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4853EA7B278647130067B6A8 /* MainViewControllerSpecs.swift */; };
+		4853EA86278647130067B6A8 /* IAR_SurfaceSDK_SampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4853EA85278647130067B6A8 /* IAR_SurfaceSDK_SampleUITests.swift */; };
+		4853EA88278647130067B6A8 /* IAR_SurfaceSDK_SampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4853EA87278647130067B6A8 /* IAR_SurfaceSDK_SampleUITestsLaunchTests.swift */; };
+		48658412279F184100BC41DD /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 48658411279F184100BC41DD /* Nimble */; };
+		48658415279F185C00BC41DD /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 48658414279F185C00BC41DD /* Quick */; };
+		48658418279F187300BC41DD /* SpecLeaks in Frameworks */ = {isa = PBXBuildFile; productRef = 48658417279F187300BC41DD /* SpecLeaks */; };
+		48658421279F524700BC41DD /* ExternalUsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4865841F279F524600BC41DD /* ExternalUsersController.swift */; };
+		48658422279F524700BC41DD /* PreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48658420279F524600BC41DD /* PreferencesController.swift */; };
+		48658425279F525600BC41DD /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48658424279F525600BC41DD /* UIAlertController.swift */; };
+		48658427279F526100BC41DD /* log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48658426279F526100BC41DD /* log.swift */; };
+		4865842A279F526F00BC41DD /* UserManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48658428279F526F00BC41DD /* UserManagementViewController.xib */; };
+		4865842B279F526F00BC41DD /* UserManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48658429279F526F00BC41DD /* UserManagementViewController.swift */; };
+		4865842D279F527600BC41DD /* UserManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4865842C279F527600BC41DD /* UserManagementViewModel.swift */; };
+		48775FB327B1B855007E1047 /* OnDemandMarkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48775FB227B1B855007E1047 /* OnDemandMarkersViewController.swift */; };
+		48775FBA27B1B8CF007E1047 /* LocationMarkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48775FB927B1B8CF007E1047 /* LocationMarkersViewController.swift */; };
+		488F2E7727A3027800D90883 /* NFCWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F2E7627A3027800D90883 /* NFCWriteViewController.swift */; };
+		488F2E7C27A338F400D90883 /* NFCReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F2E7B27A338F400D90883 /* NFCReadViewController.swift */; };
+		48AE2C4A27B1C6CC00E8B339 /* SurfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AE2C4927B1C6CC00E8B339 /* SurfaceViewController.swift */; };
+		4FCBFE20690474217DC02034 /* Pods_IAR_SurfaceSDK_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7607D193428B59C9F1647426 /* Pods_IAR_SurfaceSDK_Sample.framework */; };
+		A307BF3B2791C0EF00C9DB5B /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307BF392791C0EF00C9DB5B /* MenuController.swift */; };
+		A307BF3F2791C12800C9DB5B /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A307BF3E2791C12800C9DB5B /* MenuItem.swift */; };
+		A307BF422791C3AA00C9DB5B /* mainViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A307BF412791C3AA00C9DB5B /* mainViewHeader.xib */; };
+		A32A43D627BAB10000630EA7 /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A43D127BAB10000630EA7 /* PreviewCell.swift */; };
+		A32A43D727BAB10000630EA7 /* PreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32A43D227BAB10000630EA7 /* PreviewCell.xib */; };
+		A32A43D827BAB10000630EA7 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32A43D427BAB10000630EA7 /* LocationCell.xib */; };
+		A32A43D927BAB10000630EA7 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A43D527BAB10000630EA7 /* LocationCell.swift */; };
+		A32A43DB27BAB1AF00630EA7 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A43DA27BAB1AF00630EA7 /* UIImageView.swift */; };
+		A907C8603CEA4CC4EC3C72B5 /* Pods_IAR_SurfaceSDK_Sample_IAR_SurfaceSDK_SampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB9029A0F8F57F395C9F721 /* Pods_IAR_SurfaceSDK_Sample_IAR_SurfaceSDK_SampleUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4853EA78278647130067B6A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4853EA59278647120067B6A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4853EA60278647120067B6A8;
+			remoteInfo = "IAR-SurfaceSDK-Sample";
+		};
+		4853EA82278647130067B6A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4853EA59278647120067B6A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4853EA60278647120067B6A8;
+			remoteInfo = "IAR-SurfaceSDK-Sample";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		40E304E63F8E043B558F5839 /* Pods-IAR-SurfaceSDK-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IAR-SurfaceSDK-Sample.debug.xcconfig"; path = "Target Support Files/Pods-IAR-SurfaceSDK-Sample/Pods-IAR-SurfaceSDK-Sample.debug.xcconfig"; sourceTree = "<group>"; };
+		4853EA61278647120067B6A8 /* IAR-SurfaceSDK-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IAR-SurfaceSDK-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4853EA64278647120067B6A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4853EA66278647120067B6A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4853EA68278647120067B6A8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4853EA6B278647120067B6A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4853EA6D278647130067B6A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4853EA70278647130067B6A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4853EA72278647130067B6A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4853EA77278647130067B6A8 /* IAR-SurfaceSDK-SampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IAR-SurfaceSDK-SampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4853EA7B278647130067B6A8 /* MainViewControllerSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerSpecs.swift; sourceTree = "<group>"; };
+		4853EA81278647130067B6A8 /* IAR-SurfaceSDK-SampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IAR-SurfaceSDK-SampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4853EA85278647130067B6A8 /* IAR_SurfaceSDK_SampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAR_SurfaceSDK_SampleUITests.swift; sourceTree = "<group>"; };
+		4853EA87278647130067B6A8 /* IAR_SurfaceSDK_SampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAR_SurfaceSDK_SampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4865841F279F524600BC41DD /* ExternalUsersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExternalUsersController.swift; path = "../../../../IAR-Samples-Common/Controllers/ExternalUsersController.swift"; sourceTree = "<group>"; };
+		48658420279F524600BC41DD /* PreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferencesController.swift; path = "../../../../IAR-Samples-Common/Controllers/PreferencesController.swift"; sourceTree = "<group>"; };
+		48658424279F525600BC41DD /* UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAlertController.swift; path = "../../../../../IAR-Samples-Common/Extensions/UIKit/UIAlertController.swift"; sourceTree = "<group>"; };
+		48658426279F526100BC41DD /* log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = log.swift; path = "../../../../IAR-Samples-Common/Free Functions/log.swift"; sourceTree = "<group>"; };
+		48658428279F526F00BC41DD /* UserManagementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserManagementViewController.xib; path = "../../../../IAR-Samples-Common/ViewControllers/UserManagementViewController.xib"; sourceTree = "<group>"; };
+		48658429279F526F00BC41DD /* UserManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManagementViewController.swift; path = "../../../../IAR-Samples-Common/ViewControllers/UserManagementViewController.swift"; sourceTree = "<group>"; };
+		4865842C279F527600BC41DD /* UserManagementViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManagementViewModel.swift; path = "../../../../IAR-Samples-Common/ViewModels/UserManagementViewModel.swift"; sourceTree = "<group>"; };
+		48775FB227B1B855007E1047 /* OnDemandMarkersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnDemandMarkersViewController.swift; sourceTree = "<group>"; };
+		48775FB927B1B8CF007E1047 /* LocationMarkersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMarkersViewController.swift; sourceTree = "<group>"; };
+		488F2E7527A2F75600D90883 /* IAR-SurfaceSDK-Sample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "IAR-SurfaceSDK-Sample.entitlements"; sourceTree = "<group>"; };
+		488F2E7627A3027800D90883 /* NFCWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCWriteViewController.swift; sourceTree = "<group>"; };
+		488F2E7B27A338F400D90883 /* NFCReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReadViewController.swift; sourceTree = "<group>"; };
+		48AE2C4927B1C6CC00E8B339 /* SurfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfaceViewController.swift; sourceTree = "<group>"; };
+		7607D193428B59C9F1647426 /* Pods_IAR_SurfaceSDK_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IAR_SurfaceSDK_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		787103E4F66F22FA7766CEC3 /* Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests.release.xcconfig"; path = "Target Support Files/Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests/Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7A724349340C76141379412F /* Pods-IAR-SurfaceSDK-SampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IAR-SurfaceSDK-SampleTests.release.xcconfig"; path = "Target Support Files/Pods-IAR-SurfaceSDK-SampleTests/Pods-IAR-SurfaceSDK-SampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		86BF250B70DEDAA7C87D9BB9 /* Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests.debug.xcconfig"; path = "Target Support Files/Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests/Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9929759BA029A23E42347D85 /* Pods-IAR-SurfaceSDK-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IAR-SurfaceSDK-Sample.release.xcconfig"; path = "Target Support Files/Pods-IAR-SurfaceSDK-Sample/Pods-IAR-SurfaceSDK-Sample.release.xcconfig"; sourceTree = "<group>"; };
+		9FB9029A0F8F57F395C9F721 /* Pods_IAR_SurfaceSDK_Sample_IAR_SurfaceSDK_SampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IAR_SurfaceSDK_Sample_IAR_SurfaceSDK_SampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A307BF392791C0EF00C9DB5B /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		A307BF3E2791C12800C9DB5B /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		A307BF412791C3AA00C9DB5B /* mainViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mainViewHeader.xib; sourceTree = "<group>"; };
+		A32A43D127BAB10000630EA7 /* PreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewCell.swift; sourceTree = "<group>"; };
+		A32A43D227BAB10000630EA7 /* PreviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewCell.xib; sourceTree = "<group>"; };
+		A32A43D427BAB10000630EA7 /* LocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
+		A32A43D527BAB10000630EA7 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		A32A43DA27BAB1AF00630EA7 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageView.swift; path = "../../../../../IAR-Samples-Common/Extensions/UIKit/UIImageView.swift"; sourceTree = "<group>"; };
+		CF09C84B4151628B9E385454 /* Pods-IAR-SurfaceSDK-SampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IAR-SurfaceSDK-SampleTests.debug.xcconfig"; path = "Target Support Files/Pods-IAR-SurfaceSDK-SampleTests/Pods-IAR-SurfaceSDK-SampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D5521453C86E89F9D5673772 /* Pods_IAR_SurfaceSDK_SampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IAR_SurfaceSDK_SampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4853EA5E278647120067B6A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FCBFE20690474217DC02034 /* Pods_IAR_SurfaceSDK_Sample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4853EA74278647130067B6A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48658418279F187300BC41DD /* SpecLeaks in Frameworks */,
+				48658415279F185C00BC41DD /* Quick in Frameworks */,
+				48658412279F184100BC41DD /* Nimble in Frameworks */,
+				2BBBD5D5143D4CF21BD3CF4E /* Pods_IAR_SurfaceSDK_SampleTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4853EA7E278647130067B6A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A907C8603CEA4CC4EC3C72B5 /* Pods_IAR_SurfaceSDK_Sample_IAR_SurfaceSDK_SampleUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4853EA58278647120067B6A8 = {
+			isa = PBXGroup;
+			children = (
+				4853EA63278647120067B6A8 /* IAR-SurfaceSDK-Sample */,
+				4853EA7A278647130067B6A8 /* IAR-SurfaceSDK-SampleTests */,
+				4853EA84278647130067B6A8 /* IAR-SurfaceSDK-SampleUITests */,
+				4853EA62278647120067B6A8 /* Products */,
+				FEAB6F7A9FF9B4B7064A4896 /* Pods */,
+				50FF49F3B2DB063B0978AE79 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4853EA62278647120067B6A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4853EA61278647120067B6A8 /* IAR-SurfaceSDK-Sample.app */,
+				4853EA77278647130067B6A8 /* IAR-SurfaceSDK-SampleTests.xctest */,
+				4853EA81278647130067B6A8 /* IAR-SurfaceSDK-SampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4853EA63278647120067B6A8 /* IAR-SurfaceSDK-Sample */ = {
+			isa = PBXGroup;
+			children = (
+				488F2E7527A2F75600D90883 /* IAR-SurfaceSDK-Sample.entitlements */,
+				48658419279F513E00BC41DD /* SharedFiles */,
+				A307BF402791C3AA00C9DB5B /* Views */,
+				A307BF432791C47B00C9DB5B /* Application */,
+				A307BF382791C0EF00C9DB5B /* Controllers */,
+				A307BF3D2791C12800C9DB5B /* Models */,
+				A307BF452791C4B300C9DB5B /* ViewController */,
+				A307BF442791C4A500C9DB5B /* SupportingFiles */,
+			);
+			path = "IAR-SurfaceSDK-Sample";
+			sourceTree = "<group>";
+		};
+		4853EA7A278647130067B6A8 /* IAR-SurfaceSDK-SampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				4853EA7B278647130067B6A8 /* MainViewControllerSpecs.swift */,
+			);
+			path = "IAR-SurfaceSDK-SampleTests";
+			sourceTree = "<group>";
+		};
+		4853EA84278647130067B6A8 /* IAR-SurfaceSDK-SampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4853EA85278647130067B6A8 /* IAR_SurfaceSDK_SampleUITests.swift */,
+				4853EA87278647130067B6A8 /* IAR_SurfaceSDK_SampleUITestsLaunchTests.swift */,
+			);
+			path = "IAR-SurfaceSDK-SampleUITests";
+			sourceTree = "<group>";
+		};
+		48658419279F513E00BC41DD /* SharedFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4865841E279F51F100BC41DD /* ViewModels */,
+				4865841D279F51E700BC41DD /* ViewControllers */,
+				4865841C279F51E000BC41DD /* Free Functions */,
+				4865841B279F51D900BC41DD /* Extensions */,
+				4865841A279F51CC00BC41DD /* Controllers */,
+			);
+			path = SharedFiles;
+			sourceTree = "<group>";
+		};
+		4865841A279F51CC00BC41DD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4865841F279F524600BC41DD /* ExternalUsersController.swift */,
+				48658420279F524600BC41DD /* PreferencesController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4865841B279F51D900BC41DD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				48658423279F524E00BC41DD /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4865841C279F51E000BC41DD /* Free Functions */ = {
+			isa = PBXGroup;
+			children = (
+				48658426279F526100BC41DD /* log.swift */,
+			);
+			path = "Free Functions";
+			sourceTree = "<group>";
+		};
+		4865841D279F51E700BC41DD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				48658429279F526F00BC41DD /* UserManagementViewController.swift */,
+				48658428279F526F00BC41DD /* UserManagementViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4865841E279F51F100BC41DD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4865842C279F527600BC41DD /* UserManagementViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		48658423279F524E00BC41DD /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				A32A43DA27BAB1AF00630EA7 /* UIImageView.swift */,
+				48658424279F525600BC41DD /* UIAlertController.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		50FF49F3B2DB063B0978AE79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7607D193428B59C9F1647426 /* Pods_IAR_SurfaceSDK_Sample.framework */,
+				9FB9029A0F8F57F395C9F721 /* Pods_IAR_SurfaceSDK_Sample_IAR_SurfaceSDK_SampleUITests.framework */,
+				D5521453C86E89F9D5673772 /* Pods_IAR_SurfaceSDK_SampleTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A307BF382791C0EF00C9DB5B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A307BF392791C0EF00C9DB5B /* MenuController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A307BF3D2791C12800C9DB5B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A307BF3E2791C12800C9DB5B /* MenuItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A307BF402791C3AA00C9DB5B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A32A43D327BAB10000630EA7 /* LocationCell */,
+				A32A43D027BAB10000630EA7 /* PreviewCell */,
+				A307BF412791C3AA00C9DB5B /* mainViewHeader.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A307BF432791C47B00C9DB5B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				4853EA64278647120067B6A8 /* AppDelegate.swift */,
+				4853EA66278647120067B6A8 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A307BF442791C4A500C9DB5B /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4853EA6A278647120067B6A8 /* Main.storyboard */,
+				4853EA6D278647130067B6A8 /* Assets.xcassets */,
+				4853EA6F278647130067B6A8 /* LaunchScreen.storyboard */,
+				4853EA72278647130067B6A8 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		A307BF452791C4B300C9DB5B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A370FAEE27B31A4400C984A2 /* NFC */,
+				4853EA68278647120067B6A8 /* MainViewController.swift */,
+				48AE2C4927B1C6CC00E8B339 /* SurfaceViewController.swift */,
+				48775FB227B1B855007E1047 /* OnDemandMarkersViewController.swift */,
+				48775FB927B1B8CF007E1047 /* LocationMarkersViewController.swift */,
+				A370FAEF27B31AA000C984A2 /* Surface */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A32A43D027BAB10000630EA7 /* PreviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A32A43D127BAB10000630EA7 /* PreviewCell.swift */,
+				A32A43D227BAB10000630EA7 /* PreviewCell.xib */,
+			);
+			path = PreviewCell;
+			sourceTree = "<group>";
+		};
+		A32A43D327BAB10000630EA7 /* LocationCell */ = {
+			isa = PBXGroup;
+			children = (
+				A32A43D427BAB10000630EA7 /* LocationCell.xib */,
+				A32A43D527BAB10000630EA7 /* LocationCell.swift */,
+			);
+			path = LocationCell;
+			sourceTree = "<group>";
+		};
+		A370FAEE27B31A4400C984A2 /* NFC */ = {
+			isa = PBXGroup;
+			children = (
+				488F2E7627A3027800D90883 /* NFCWriteViewController.swift */,
+				488F2E7B27A338F400D90883 /* NFCReadViewController.swift */,
+			);
+			path = NFC;
+			sourceTree = "<group>";
+		};
+		A370FAEF27B31AA000C984A2 /* Surface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Surface;
+			sourceTree = "<group>";
+		};
+		FEAB6F7A9FF9B4B7064A4896 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				40E304E63F8E043B558F5839 /* Pods-IAR-SurfaceSDK-Sample.debug.xcconfig */,
+				9929759BA029A23E42347D85 /* Pods-IAR-SurfaceSDK-Sample.release.xcconfig */,
+				86BF250B70DEDAA7C87D9BB9 /* Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests.debug.xcconfig */,
+				787103E4F66F22FA7766CEC3 /* Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests.release.xcconfig */,
+				CF09C84B4151628B9E385454 /* Pods-IAR-SurfaceSDK-SampleTests.debug.xcconfig */,
+				7A724349340C76141379412F /* Pods-IAR-SurfaceSDK-SampleTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4853EA60278647120067B6A8 /* IAR-SurfaceSDK-Sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4853EA8B278647130067B6A8 /* Build configuration list for PBXNativeTarget "IAR-SurfaceSDK-Sample" */;
+			buildPhases = (
+				FB73582ED1E8F187011F0E4B /* [CP] Check Pods Manifest.lock */,
+				4853EA5D278647120067B6A8 /* Sources */,
+				4853EA5E278647120067B6A8 /* Frameworks */,
+				4853EA5F278647120067B6A8 /* Resources */,
+				D1D479AF5E1A708001286C87 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "IAR-SurfaceSDK-Sample";
+			productName = "IAR-SurfaceSDK-Sample";
+			productReference = 4853EA61278647120067B6A8 /* IAR-SurfaceSDK-Sample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4853EA76278647130067B6A8 /* IAR-SurfaceSDK-SampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4853EA8E278647130067B6A8 /* Build configuration list for PBXNativeTarget "IAR-SurfaceSDK-SampleTests" */;
+			buildPhases = (
+				B95960A0CE0A7106ACB42FF2 /* [CP] Check Pods Manifest.lock */,
+				4853EA73278647130067B6A8 /* Sources */,
+				4853EA74278647130067B6A8 /* Frameworks */,
+				4853EA75278647130067B6A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4853EA79278647130067B6A8 /* PBXTargetDependency */,
+			);
+			name = "IAR-SurfaceSDK-SampleTests";
+			packageProductDependencies = (
+				48658411279F184100BC41DD /* Nimble */,
+				48658414279F185C00BC41DD /* Quick */,
+				48658417279F187300BC41DD /* SpecLeaks */,
+			);
+			productName = "IAR-SurfaceSDK-SampleTests";
+			productReference = 4853EA77278647130067B6A8 /* IAR-SurfaceSDK-SampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4853EA80278647130067B6A8 /* IAR-SurfaceSDK-SampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4853EA91278647130067B6A8 /* Build configuration list for PBXNativeTarget "IAR-SurfaceSDK-SampleUITests" */;
+			buildPhases = (
+				CF850100EA111F762CE2CFBB /* [CP] Check Pods Manifest.lock */,
+				4853EA7D278647130067B6A8 /* Sources */,
+				4853EA7E278647130067B6A8 /* Frameworks */,
+				4853EA7F278647130067B6A8 /* Resources */,
+				654D7A1317FCBD22E3C8F243 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4853EA83278647130067B6A8 /* PBXTargetDependency */,
+			);
+			name = "IAR-SurfaceSDK-SampleUITests";
+			productName = "IAR-SurfaceSDK-SampleUITests";
+			productReference = 4853EA81278647130067B6A8 /* IAR-SurfaceSDK-SampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4853EA59278647120067B6A8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					4853EA60278647120067B6A8 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					4853EA76278647130067B6A8 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 4853EA60278647120067B6A8;
+					};
+					4853EA80278647130067B6A8 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 4853EA60278647120067B6A8;
+					};
+				};
+			};
+			buildConfigurationList = 4853EA5C278647120067B6A8 /* Build configuration list for PBXProject "IAR-SurfaceSDK-Sample" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4853EA58278647120067B6A8;
+			packageReferences = (
+				48658410279F184100BC41DD /* XCRemoteSwiftPackageReference "Nimble" */,
+				48658413279F185C00BC41DD /* XCRemoteSwiftPackageReference "Quick" */,
+				48658416279F187300BC41DD /* XCRemoteSwiftPackageReference "specleaks" */,
+			);
+			productRefGroup = 4853EA62278647120067B6A8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4853EA60278647120067B6A8 /* IAR-SurfaceSDK-Sample */,
+				4853EA76278647130067B6A8 /* IAR-SurfaceSDK-SampleTests */,
+				4853EA80278647130067B6A8 /* IAR-SurfaceSDK-SampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4853EA5F278647120067B6A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A307BF422791C3AA00C9DB5B /* mainViewHeader.xib in Resources */,
+				4853EA71278647130067B6A8 /* LaunchScreen.storyboard in Resources */,
+				A32A43D827BAB10000630EA7 /* LocationCell.xib in Resources */,
+				A32A43D727BAB10000630EA7 /* PreviewCell.xib in Resources */,
+				4865842A279F526F00BC41DD /* UserManagementViewController.xib in Resources */,
+				4853EA6E278647130067B6A8 /* Assets.xcassets in Resources */,
+				4853EA6C278647120067B6A8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4853EA75278647130067B6A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4853EA7F278647130067B6A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		654D7A1317FCBD22E3C8F243 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests/Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests/Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests/Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B95960A0CE0A7106ACB42FF2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IAR-SurfaceSDK-SampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF850100EA111F762CE2CFBB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1D479AF5E1A708001286C87 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IAR-SurfaceSDK-Sample/Pods-IAR-SurfaceSDK-Sample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IAR-SurfaceSDK-Sample/Pods-IAR-SurfaceSDK-Sample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IAR-SurfaceSDK-Sample/Pods-IAR-SurfaceSDK-Sample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB73582ED1E8F187011F0E4B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IAR-SurfaceSDK-Sample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4853EA5D278647120067B6A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A32A43D627BAB10000630EA7 /* PreviewCell.swift in Sources */,
+				4865842D279F527600BC41DD /* UserManagementViewModel.swift in Sources */,
+				A307BF3B2791C0EF00C9DB5B /* MenuController.swift in Sources */,
+				48658421279F524700BC41DD /* ExternalUsersController.swift in Sources */,
+				48775FBA27B1B8CF007E1047 /* LocationMarkersViewController.swift in Sources */,
+				4865842B279F526F00BC41DD /* UserManagementViewController.swift in Sources */,
+				4853EA69278647120067B6A8 /* MainViewController.swift in Sources */,
+				4853EA65278647120067B6A8 /* AppDelegate.swift in Sources */,
+				48AE2C4A27B1C6CC00E8B339 /* SurfaceViewController.swift in Sources */,
+				48658427279F526100BC41DD /* log.swift in Sources */,
+				48658425279F525600BC41DD /* UIAlertController.swift in Sources */,
+				48775FB327B1B855007E1047 /* OnDemandMarkersViewController.swift in Sources */,
+				A32A43DB27BAB1AF00630EA7 /* UIImageView.swift in Sources */,
+				488F2E7727A3027800D90883 /* NFCWriteViewController.swift in Sources */,
+				4853EA67278647120067B6A8 /* SceneDelegate.swift in Sources */,
+				A32A43D927BAB10000630EA7 /* LocationCell.swift in Sources */,
+				488F2E7C27A338F400D90883 /* NFCReadViewController.swift in Sources */,
+				48658422279F524700BC41DD /* PreferencesController.swift in Sources */,
+				A307BF3F2791C12800C9DB5B /* MenuItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4853EA73278647130067B6A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4853EA7C278647130067B6A8 /* MainViewControllerSpecs.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4853EA7D278647130067B6A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4853EA88278647130067B6A8 /* IAR_SurfaceSDK_SampleUITestsLaunchTests.swift in Sources */,
+				4853EA86278647130067B6A8 /* IAR_SurfaceSDK_SampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4853EA79278647130067B6A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4853EA60278647120067B6A8 /* IAR-SurfaceSDK-Sample */;
+			targetProxy = 4853EA78278647130067B6A8 /* PBXContainerItemProxy */;
+		};
+		4853EA83278647130067B6A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4853EA60278647120067B6A8 /* IAR-SurfaceSDK-Sample */;
+			targetProxy = 4853EA82278647130067B6A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4853EA6A278647120067B6A8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4853EA6B278647120067B6A8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4853EA6F278647130067B6A8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4853EA70278647130067B6A8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4853EA89278647130067B6A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4853EA8A278647130067B6A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4853EA8C278647130067B6A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40E304E63F8E043B558F5839 /* Pods-IAR-SurfaceSDK-Sample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "IAR-SurfaceSDK-Sample/IAR-SurfaceSDK-Sample.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = 88BZXYUZX6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "IAR-SurfaceSDK-Sample/SupportingFiles/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Surface SDK Sample";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "NFC access used to read and write IAR marker tags";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Required for AR experience";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Required for recording AR experience";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.4;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iar.SurfaceSDK-Sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		4853EA8D278647130067B6A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9929759BA029A23E42347D85 /* Pods-IAR-SurfaceSDK-Sample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "IAR-SurfaceSDK-Sample/IAR-SurfaceSDK-Sample.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = 88BZXYUZX6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "IAR-SurfaceSDK-Sample/SupportingFiles/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Surface SDK Sample";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "NFC access used to read and write IAR marker tags";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Required for AR experience";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Required for recording AR experience";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.4;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iar.SurfaceSDK-Sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		4853EA8F278647130067B6A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF09C84B4151628B9E385454 /* Pods-IAR-SurfaceSDK-SampleTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = 88BZXYUZX6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iar.IAR-SurfaceSDK-SampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IAR-SurfaceSDK-Sample.app/IAR-SurfaceSDK-Sample";
+			};
+			name = Debug;
+		};
+		4853EA90278647130067B6A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A724349340C76141379412F /* Pods-IAR-SurfaceSDK-SampleTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = 88BZXYUZX6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iar.IAR-SurfaceSDK-SampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IAR-SurfaceSDK-Sample.app/IAR-SurfaceSDK-Sample";
+			};
+			name = Release;
+		};
+		4853EA92278647130067B6A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86BF250B70DEDAA7C87D9BB9 /* Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = 88BZXYUZX6;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iar.IAR-SurfaceSDK-SampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "IAR-SurfaceSDK-Sample";
+			};
+			name = Debug;
+		};
+		4853EA93278647130067B6A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 787103E4F66F22FA7766CEC3 /* Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = 88BZXYUZX6;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iar.IAR-SurfaceSDK-SampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "IAR-SurfaceSDK-Sample";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4853EA5C278647120067B6A8 /* Build configuration list for PBXProject "IAR-SurfaceSDK-Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4853EA89278647130067B6A8 /* Debug */,
+				4853EA8A278647130067B6A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4853EA8B278647130067B6A8 /* Build configuration list for PBXNativeTarget "IAR-SurfaceSDK-Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4853EA8C278647130067B6A8 /* Debug */,
+				4853EA8D278647130067B6A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4853EA8E278647130067B6A8 /* Build configuration list for PBXNativeTarget "IAR-SurfaceSDK-SampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4853EA8F278647130067B6A8 /* Debug */,
+				4853EA90278647130067B6A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4853EA91278647130067B6A8 /* Build configuration list for PBXNativeTarget "IAR-SurfaceSDK-SampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4853EA92278647130067B6A8 /* Debug */,
+				4853EA93278647130067B6A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		48658410279F184100BC41DD /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = exactVersion;
+				version = 9.2.1;
+			};
+		};
+		48658413279F185C00BC41DD /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = exactVersion;
+				version = 4.0.0;
+			};
+		};
+		48658416279F187300BC41DD /* XCRemoteSwiftPackageReference "specleaks" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rogerioth/specleaks";
+			requirement = {
+				kind = exactVersion;
+				version = 0.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		48658411279F184100BC41DD /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48658410279F184100BC41DD /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		48658414279F185C00BC41DD /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48658413279F185C00BC41DD /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		48658417279F187300BC41DD /* SpecLeaks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48658416279F187300BC41DD /* XCRemoteSwiftPackageReference "specleaks" */;
+			productName = SpecLeaks;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4853EA59278647120067B6A8 /* Project object */;
+}

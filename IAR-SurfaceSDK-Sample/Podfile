@@ -1,0 +1,61 @@
+source 'https://github.com/ImagineAR/IAR-SDK-Beta-Podspecs.git'
+source 'https://cdn.cocoapods.org/'
+platform :ios, '13.0'
+
+def pod_common
+  # https://github.com/onevcat/Kingfisher
+  # Kingfisher is an image-centric library: used in the sample app for
+  # filesystem caching, download management and jpg progressive loading
+  pod 'Kingfisher',       '7.0.0'
+
+  # https://github.com/rjeprasad/RappleProgressHUD
+  # Simple progress dialog ontop, used for quickly showing a 'busy state'
+  # while downloading assets and other network intensive operations
+  pod 'RappleProgressHUD','4.1'
+end
+
+def pod_surfaceSample
+  # pod 'IAR-Core',       '1.5.0-beta6'
+  # pod 'IAR-Surface',    '1.5.0-beta6'
+  # pod 'IAR-NFC',        '1.5.0-beta6'
+  pod 'ImagineAR-Core',    '~> 1.5.0'
+  pod 'ImagineAR-Surface', '~> 1.5.0'
+  pod 'ImagineAR-NFC',     '~> 1.5.0'
+  pod_common
+end
+
+def pod_surfaceSample_local
+  pod 'IAR-Core',     :path => '../../iar-sdk-ios'
+  pod 'IAR-Surface',  :path => '../../iar-sdk-ios'
+  pod 'IAR-NFC',      :path => '../../iar-sdk-ios'
+  pod_common
+end
+
+target 'IAR-SurfaceSDK-Sample' do
+  use_frameworks!
+  inhibit_all_warnings!  # ignore warnings emmited from pod sources
+  pod_surfaceSample
+
+  target 'IAR-SurfaceSDK-SampleTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'IAR-SurfaceSDK-SampleUITests' do
+    # Pods for testing
+    pod_surfaceSample
+  end
+end
+
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+      config.build_settings['CODE_SIGNING_REQUIRED'] = "NO"
+      config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"
+  end
+
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+    end
+  end
+end

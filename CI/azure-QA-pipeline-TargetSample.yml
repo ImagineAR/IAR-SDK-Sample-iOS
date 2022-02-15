@@ -1,0 +1,102 @@
+# Xcode
+# Build, test, and archive an Xcode workspace on macOS.
+# Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
+
+pool:
+  vmImage: 'macos-11'
+
+## Pipeline Name: iOS App Center - QA
+
+#CI Trigger
+trigger:
+    branches:
+       include:
+       - release/Target/*
+
+#PR Trigger
+pr: none
+
+variables:
+  - group: iOS-IAR-SampleApps
+
+steps:
+- task: DownloadSecureFile@1
+  name: gitPrivkey
+  displayName: 'Download BB Privkey certificate'
+  inputs:
+    secureFile: 'azureCI'
+
+- script: |
+    echo Installing $(gitPrivkey.secureFilePath) to the home directory...
+    sudo cp $(gitPrivkey.secureFilePath) ~/.ssh/id_rsa
+
+- task: DownloadSecureFile@1
+  name: gitPubkey
+  displayName: 'Download BB Pubkey certificate'
+  inputs:
+    secureFile: 'azureCI.pub'
+
+- script: |
+    echo Installing $(gitPubkey.secureFilePath) to the home directory...
+    if [ ! -n "$(grep "^bitbucket.org " ~/.ssh/known_hosts)" ]; then ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts 2>/dev/null; fi
+    sudo cp $(gitPrivkey.secureFilePath) ~/.ssh/azureCI
+    sudo cp $(gitPubkey.secureFilePath) ~/.ssh/azureCI.pub
+    chmod 600 ~/.ssh/azureCI
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/azureCI
+
+- script: |
+    echo Add private specs to source control...
+    pod repo add IAR-Beta https://github.com/ImagineAR/IAR-SDK-Beta-Podspecs.git
+
+- checkout: self
+  submodules: true
+
+# Installs distr and dev certificates
+- task: InstallAppleCertificate@2
+  inputs:
+    certSecureFile: 'IAR_SDK_Development.p12'
+    certPwd: ''
+    keychain: 'temp'
+
+- task: InstallAppleCertificate@2
+  inputs:
+    certSecureFile: 'IAR-SDK-Sample-Distribution-20210719.p12'
+    certPwd: ''
+    keychain: 'temp'
+    
+- task: InstallAppleProvisioningProfile@1
+  inputs:
+    provisioningProfileLocation: 'secureFiles'
+    provProfileSecureFile: 'TargetSDKSampleDistribution.mobileprovision'
+
+- task: Bash@3
+  inputs:
+    filePath: 'Scripts/setup-environment.sh'
+
+####### Target Sample #######
+- task: Xcode@5
+  inputs:
+    actions: 'archive'
+    scheme: 'IAR-TargetSDK-Sample'
+    sdk: 'iphoneos'
+    configuration: 'Release'
+    xcWorkspacePath: 'IAR-TargetSDK-Sample/IAR-TargetSDK-Sample.xcworkspace'
+    xcodeVersion: 'default' # Options: 8, 9, 10, 11, 12, default, specifyPath
+    packageApp: true
+    archivePath: 'archive/'
+    exportPath: 'ipa/'
+    signingOption: 'manual'
+    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
+    provisioningProfileName: 'TargetSDKSample-Distribution'
+    args: '-allowProvisioningUpdates'
+
+- task: AppCenterDistribute@3
+  inputs:
+    serverEndpoint: 'IAR SDK App Center - iOS'
+    appSlug: '$(QA-App-slug-root)/IAR-TargetSDK-Sample'
+    appFile: '**/*.ipa'
+    releaseNotesOption: 'input'
+    releaseNotesInput: $(Release Notes)
+    destinationType: 'groups'

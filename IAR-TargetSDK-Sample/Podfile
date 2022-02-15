@@ -1,0 +1,44 @@
+source 'https://github.com/ImagineAR/IAR-SDK-Beta-Podspecs.git'
+source 'https://cdn.cocoapods.org/'
+platform :ios, '13.0'
+
+def pod_targetSample
+  # pod 'IAR-Core',   '1.5.0-beta6'
+  # pod 'IAR-Target', '1.5.0-beta6'
+  pod 'ImagineAR-Core',    '~> 1.5.0'
+  pod 'ImagineAR-Target',  '~> 1.5.0'
+end
+
+def pod_targetSample_local
+  pod 'IAR-Core',     :path => '../../iar-sdk-ios'
+  pod 'IAR-Target',   :path => '../../iar-sdk-ios'
+end
+
+target 'IAR-TargetSDK-Sample' do
+  use_frameworks!
+  inhibit_all_warnings!  # ignore warnings emmited from pod sources
+  pod_targetSample
+
+  target 'IAR-TargetSDK-SampleTests' do
+    inherit! :search_paths
+  end
+  
+  target 'IAR-TargetSDK-SampleUITests' do
+    inherit! :search_paths
+
+    pod_targetSample
+  end
+end
+
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+      config.build_settings['CODE_SIGNING_REQUIRED'] = "NO"
+      config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"
+  end
+
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+    end
+  end
+end

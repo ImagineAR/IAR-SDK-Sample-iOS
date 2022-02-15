@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="siH-hk-Ejy">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="PK5-BQ-ZPd">
+            <objects>
+                <navigationController id="siH-hk-Ejy" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HPi-jl-BgR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="HxT-LR-rbG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ae-RB-Ap6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-295" y="-200"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="MainScreen" title="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MainViewController" customModule="IAR_TargetSDK_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pQy-9g-crS">
+                                <rect key="frame" x="16" y="88" width="382" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pQy-9g-crS" secondAttribute="trailing" constant="16" id="5Qh-IH-k5H"/>
+                            <constraint firstItem="pQy-9g-crS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MYr-GM-Rp8"/>
+                            <constraint firstItem="pQy-9g-crS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="eWe-1p-1gK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pQy-9g-crS" secondAttribute="bottom" id="gTD-qO-tMG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KGq-Ux-BPT"/>
+                    <connections>
+                        <outlet property="tableView" destination="pQy-9g-crS" id="xvc-ew-Faf"/>
+                        <segue destination="tiF-u1-ugQ" kind="show" identifier="segueScanARTarget" id="TXb-Mt-Zdd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="510" y="-200"/>
+        </scene>
+        <!--Scan AR Target-->
+        <scene sceneID="IBT-E4-Oe8">
+            <objects>
+                <viewController title="Scan AR Target" id="tiF-u1-ugQ" customClass="ScanARViewController" customModule="IAR_TargetSDK_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lvb-pa-DIN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8RA-pT-cfL" userLabel="ARView" customClass="IARView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="chQ-Nv-LPU" userLabel="RecordProgressView">
+                                <rect key="frame" x="20" y="778" width="374" height="4"/>
+                            </progressView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Vco-C1-Yxr" userLabel="ButtonStackView">
+                                <rect key="frame" x="20" y="802" width="374" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zN1-To-ig3" userLabel="ScreenshotButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="181" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="SCREEN SHOT" cornerStyle="large">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onScreenshotButton:" destination="tiF-u1-ugQ" eventType="touchUpInside" id="OvI-Bd-oob"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71d-YC-GGC" userLabel="RecordButton">
+                                        <rect key="frame" x="193" y="0.0" width="181" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="RECORD VIDEO" cornerStyle="large">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onRecordButton:" destination="tiF-u1-ugQ" eventType="touchUpInside" id="XOB-cl-wdh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Nnt-5k-XNm"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="i4B-0Y-gJe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="i4B-0Y-gJe" firstAttribute="trailing" secondItem="Vco-C1-Yxr" secondAttribute="trailing" constant="20" id="1bt-aM-HZ6"/>
+                            <constraint firstAttribute="bottom" secondItem="8RA-pT-cfL" secondAttribute="bottom" id="5OO-eH-LFU"/>
+                            <constraint firstItem="i4B-0Y-gJe" firstAttribute="trailing" secondItem="chQ-Nv-LPU" secondAttribute="trailing" constant="20" id="CeF-2X-oGR"/>
+                            <constraint firstItem="8RA-pT-cfL" firstAttribute="leading" secondItem="i4B-0Y-gJe" secondAttribute="leading" id="brT-j9-ZhH"/>
+                            <constraint firstItem="i4B-0Y-gJe" firstAttribute="bottom" secondItem="Vco-C1-Yxr" secondAttribute="bottom" constant="20" id="bx1-aq-GPO"/>
+                            <constraint firstItem="8RA-pT-cfL" firstAttribute="top" secondItem="i4B-0Y-gJe" secondAttribute="top" id="hH9-p8-myM"/>
+                            <constraint firstItem="Vco-C1-Yxr" firstAttribute="leading" secondItem="i4B-0Y-gJe" secondAttribute="leading" constant="20" id="n8b-b0-KL7"/>
+                            <constraint firstItem="8RA-pT-cfL" firstAttribute="trailing" secondItem="i4B-0Y-gJe" secondAttribute="trailing" id="oDW-ow-AW7"/>
+                            <constraint firstItem="Vco-C1-Yxr" firstAttribute="top" secondItem="chQ-Nv-LPU" secondAttribute="bottom" constant="20" id="t6S-RH-dMa"/>
+                            <constraint firstItem="chQ-Nv-LPU" firstAttribute="leading" secondItem="i4B-0Y-gJe" secondAttribute="leading" constant="20" id="z78-4l-oIM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Scan an AR Target" id="JzQ-rm-Udu"/>
+                    <connections>
+                        <outlet property="arView" destination="8RA-pT-cfL" id="aWD-OU-FEJ"/>
+                        <outlet property="recordButton" destination="71d-YC-GGC" id="rmS-Or-EST"/>
+                        <outlet property="recordProgressView" destination="chQ-Nv-LPU" id="I0e-99-c4g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oJX-mo-mZu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1450.7246376811595" y="-200.22321428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
