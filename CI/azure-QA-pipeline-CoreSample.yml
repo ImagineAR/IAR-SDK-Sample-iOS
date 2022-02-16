@@ -10,9 +10,9 @@ pool:
 
 #CI Trigger
 trigger:
-    branches:
+    tags:
        include:
-       - release/Core/*
+       - *
 
 #PR Trigger
 pr: none
