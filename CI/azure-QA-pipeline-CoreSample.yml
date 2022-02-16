@@ -12,7 +12,7 @@ pool:
 trigger:
     tags:
        include:
-       - *
+       - v*
 
 #PR Trigger
 pr: none
