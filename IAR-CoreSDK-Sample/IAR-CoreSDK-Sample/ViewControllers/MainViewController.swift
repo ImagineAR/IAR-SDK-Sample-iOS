@@ -114,7 +114,7 @@ extension MainViewController: UITableViewDelegate {
                 // In this example, we are adding a custom location
                 // For more details, see "DebugLocationCommand"
                 let view = IARDebugViewController(customCommands: [DebugLocationCommand()])
-                self.navigationController?.pushViewController(view, animated: true)
+                present(view, animated: true) // We recommend to present it as a modal.
         }
     }
 }
