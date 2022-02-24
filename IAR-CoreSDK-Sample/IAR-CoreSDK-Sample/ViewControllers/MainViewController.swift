@@ -110,7 +110,10 @@ extension MainViewController: UITableViewDelegate {
             case .arHunts:
                 self.performSegue(withIdentifier: "segueARHunts", sender: nil)
             case .debugTools:
-                let view = IARDebugViewController(customCommands: [])
+                // You can add custom commands if you want to on the debugTool
+                // In this example, we are adding a custom location
+                // For more details, see "DebugLocationCommand"
+                let view = IARDebugViewController(customCommands: [DebugLocationCommand()])
                 self.navigationController?.pushViewController(view, animated: true)
         }
     }

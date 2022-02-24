@@ -33,6 +33,7 @@ class LocationMarkersViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
+        setupLocation()
         getLocationMarkers()
     }
     
@@ -65,8 +66,26 @@ class LocationMarkersViewController: UIViewController {
         tableView.register(UINib(nibName: "LocationCell", bundle: nil), forCellReuseIdentifier: "LocationCellIdentifier")
     }
     
-    private func updateCoordinatesLabel() {
+    private func setupLocation(){
+        var simulatedLocation: String = "\(self.latitude);\(self.longitude)"
+        
+        // Check if there is a simulated location from the Degub tools
+        if DebugSettingsController.shared.simulatedLocation {
+            simulatedLocation = "\(DebugSettingsController.shared.simulatedLatitude);\(DebugSettingsController.shared.simulatedLongitude)"
+        }
+        
+        // If there is none, get the last simulated location for this device
+        else if let location = UserDefaults.standard.string(forKey: "SimulatedLocation") {
+                simulatedLocation = location
+        }
+        
+        updateCoordinates(simulatedLocation)
+    }
+    
+    private func updateLocation() {
+        UserDefaults.standard.set("\(self.latitude);\(self.longitude)", forKey: "SimulatedLocation")
         self.coordinatesLabel.text = String(format: "Coordinates %.2f;%.2f. Radius: %.2f", self.longitude, self.latitude, self.radius)
+
     }
     
     
@@ -111,17 +130,23 @@ class LocationMarkersViewController: UIViewController {
     }
     
     private func updateCoordinates(_ coordinates: String) {
-        let newCoordinate = coordinates.split(separator: ";")
-        guard newCoordinate.count == 2 else {
+        guard coordinates.split(separator: ";").count == 2 else {
             self.present(UIAlertController.defaultDialog(title: "Invalid input", message: "Latitude and Longitude values need to be separated by ;"), animated: true, completion: nil)
             return
         }
         
+        getNewLocation(from: coordinates)
+        
+        self.updateLocation()
+        self.getLocationMarkers()
+    }
+    
+    private func getNewLocation(from stringLocation: String ) {
+        UserDefaults.standard.set(stringLocation, forKey: "SimulatedLocation")
+        let newCoordinate = stringLocation.split(separator: ";")
+        
         self.latitude = Double(newCoordinate[0]) ?? 0.0
         self.longitude = Double(newCoordinate[1]) ?? 0.0
-        
-        self.updateCoordinatesLabel()
-        self.getLocationMarkers()
     }
     
     private func onTakeMeThereButton(latitude: Double, longitude: Double) {
