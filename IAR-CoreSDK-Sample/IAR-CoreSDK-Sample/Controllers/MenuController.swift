@@ -1,6 +1,6 @@
 //
 //  MenuController.swift
-//  IAR-TargetSDK-Sample
+//  IAR-CoreSDK-Sample
 //
 //  Created by Rogerio on 2021-12-23.
 //
