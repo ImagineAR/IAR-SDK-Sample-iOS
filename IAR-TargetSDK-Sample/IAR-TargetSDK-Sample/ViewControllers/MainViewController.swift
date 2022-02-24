@@ -99,8 +99,7 @@ extension MainViewController: UITableViewDelegate {
                 self.performSegue(withIdentifier: "segueScanARTarget", sender: self)
             case .debugTools:
                 let view = IARDebugViewController(customCommands: [])
-                view.title = "Debug Tools"
-                self.navigationController?.pushViewController(view, animated: true)
+                present(view, animated: true) // We recommend to present it as a modal.
             case .userManagement:
                 let view = UserManagementViewController()
                 self.navigationController?.pushViewController(view, animated: true)
