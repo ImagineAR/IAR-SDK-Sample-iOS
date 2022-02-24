@@ -50,6 +50,10 @@ Demonstrates usage of the IAR-Target-SDK:
 - Scan/recognition of target markers;
 - Video record/Take screenshot of AR experiences and share them inside your app;
 
+To invoke target markers on the demonstration account, scan these images within the sample App:
+
+- [Download images](https://iarv2storage.blob.core.windows.net/sdk-versions/TargetImages.zip)
+
 ![Target SDK Sample](/img/targetSample.jpg)
 
 ## IAR-CoreSDK-Sample
