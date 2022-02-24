@@ -1,9 +1,11 @@
 <p align="center">
-<img src="img/logo.svg" width="35%" alt="ImagineAR Logo" />
-<br />
-<br />
-<a href="https://cocoapods.org/pods/ImagineAR-SDK" alt="ImagineAR-SDK on CocoaPods" title="ImagineAR-SDK on CocoaPods"><img src="img/pod.svg" /></a>
-<img src="img/platform.svg" alt="Supported Platforms: iOS" />
+    <br />
+    <br />
+    <img src="img/IAR_GitHub_Banner.png" width="35%" alt="ImagineAR Logo" />
+    <br />
+    <br />
+    <a href="https://cocoapods.org/pods/ImagineAR-SDK" alt="ImagineAR-SDK on CocoaPods" title="ImagineAR-SDK on CocoaPods"><img src="img/pod.svg" /></a>
+    <img src="img/platform.svg" alt="Supported Platforms: iOS" />
 </p>
 
 
