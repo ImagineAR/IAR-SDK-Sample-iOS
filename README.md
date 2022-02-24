@@ -1,6 +1,6 @@
 <p align="center">
 <img src="img/logo.svg" width="35%" alt="RxSwift Logo" />
-
+<br />
 <br />
 <a href="https://cocoapods.org/pods/ImagineAR-SDK" alt="ImagineAR-SDK on CocoaPods" title="ImagineAR-SDK on CocoaPods"><img src="img/pod.svg" /></a>
 <img src="img/platform.svg" alt="Supported Platforms: iOS" />
@@ -65,8 +65,9 @@ Demonstrates usage of the IAR-Core-SDK (that is also used on all other samples, 
 ## Common to all samples
 
 All samples also demonstrates:
-User Management - How to CRUD Users (that can be assigned to your own user base) - they are basically the GUID IDs of your own user management system;
-Debug Tools - A set of feature toggles to help Developers preview features (Analytics, File logs, Debug layer, Surface detection points, generated shadows, light autodetection, simulate location)
+
+- User Management - How to CRUD Users (that can be assigned to your own user base) - they are basically the GUID IDs of your own user management system;
+- Debug Tools - A set of feature toggles to help Developers preview features (Analytics, File logs, - - Debug layer, Surface detection points, generated shadows, light autodetection, simulate location)
 
 # More Resources
 
