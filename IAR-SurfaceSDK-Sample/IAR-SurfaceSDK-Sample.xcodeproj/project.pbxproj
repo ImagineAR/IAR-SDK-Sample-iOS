@@ -39,6 +39,7 @@
 		A32A43D827BAB10000630EA7 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32A43D427BAB10000630EA7 /* LocationCell.xib */; };
 		A32A43D927BAB10000630EA7 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A43D527BAB10000630EA7 /* LocationCell.swift */; };
 		A32A43DB27BAB1AF00630EA7 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32A43DA27BAB1AF00630EA7 /* UIImageView.swift */; };
+		A3DA671927CEC45300F0BEFF /* DebugLocationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DA671827CEC45300F0BEFF /* DebugLocationCommand.swift */; };
 		BA25F36A638FC75D592B3F39 /* Pods_IAR_SurfaceSDK_Sample_IAR_SurfaceSDK_SampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD29EEA6DA9DC4FA8ED5BB5 /* Pods_IAR_SurfaceSDK_Sample_IAR_SurfaceSDK_SampleUITests.framework */; };
 		E844E3E4300C96FA0C083222 /* Pods_IAR_SurfaceSDK_SampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09804045365EEDF4F3CF27C6 /* Pods_IAR_SurfaceSDK_SampleTests.framework */; };
 		EDD164D0C9780BE34CD3E254 /* Pods_IAR_SurfaceSDK_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D73F1D990A48EC7291A84664 /* Pods_IAR_SurfaceSDK_Sample.framework */; };
@@ -101,6 +102,7 @@
 		A32A43D427BAB10000630EA7 /* LocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		A32A43D527BAB10000630EA7 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		A32A43DA27BAB1AF00630EA7 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageView.swift; path = "../../../../../IAR-Samples-Common/Extensions/UIKit/UIImageView.swift"; sourceTree = "<group>"; };
+		A3DA671827CEC45300F0BEFF /* DebugLocationCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugLocationCommand.swift; sourceTree = "<group>"; };
 		AB78BD51AABF1417C0F79A15 /* Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests.debug.xcconfig"; path = "Target Support Files/Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests/Pods-IAR-SurfaceSDK-Sample-IAR-SurfaceSDK-SampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D73F1D990A48EC7291A84664 /* Pods_IAR_SurfaceSDK_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IAR_SurfaceSDK_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85E3ED6D17C96E0706766B3 /* Pods-IAR-SurfaceSDK-SampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IAR-SurfaceSDK-SampleTests.debug.xcconfig"; path = "Target Support Files/Pods-IAR-SurfaceSDK-SampleTests/Pods-IAR-SurfaceSDK-SampleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				488F2E7527A2F75600D90883 /* IAR-SurfaceSDK-Sample.entitlements */,
 				48658419279F513E00BC41DD /* SharedFiles */,
 				A307BF402791C3AA00C9DB5B /* Views */,
+				A3DA671727CEC42A00F0BEFF /* DebugExtension */,
 				A307BF432791C47B00C9DB5B /* Application */,
 				A307BF382791C0EF00C9DB5B /* Controllers */,
 				A307BF3D2791C12800C9DB5B /* Models */,
@@ -346,6 +349,14 @@
 			children = (
 			);
 			path = Surface;
+			sourceTree = "<group>";
+		};
+		A3DA671727CEC42A00F0BEFF /* DebugExtension */ = {
+			isa = PBXGroup;
+			children = (
+				A3DA671827CEC45300F0BEFF /* DebugLocationCommand.swift */,
+			);
+			path = DebugExtension;
 			sourceTree = "<group>";
 		};
 		BDE7C0DBE3D910B60B4E06F3 /* Frameworks */ = {
@@ -632,6 +643,7 @@
 				4865842B279F526F00BC41DD /* UserManagementViewController.swift in Sources */,
 				4853EA69278647120067B6A8 /* MainViewController.swift in Sources */,
 				4853EA65278647120067B6A8 /* AppDelegate.swift in Sources */,
+				A3DA671927CEC45300F0BEFF /* DebugLocationCommand.swift in Sources */,
 				48AE2C4A27B1C6CC00E8B339 /* SurfaceViewController.swift in Sources */,
 				48658427279F526100BC41DD /* log.swift in Sources */,
 				48658425279F525600BC41DD /* UIAlertController.swift in Sources */,

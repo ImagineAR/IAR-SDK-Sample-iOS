@@ -152,9 +152,15 @@ extension IARDebugViewController {
     
     override public func viewDidAppear(_ animated: Bool) {
         self.navigationController?.hidesBarsWhenKeyboardAppears = true
+        super.viewDidAppear(animated)
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    public override func viewDidDisappear(_ animated: Bool) {
+        self.navigationController?.hidesBarsWhenKeyboardAppears = false
+        super.viewDidDisappear(animated)
     }
 }
