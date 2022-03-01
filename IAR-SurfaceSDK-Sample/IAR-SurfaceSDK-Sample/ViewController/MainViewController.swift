@@ -106,7 +106,7 @@ extension MainViewController: UITableViewDelegate {
                 performSegue(withIdentifier: "segueNFCRead", sender: self)
             case .debugTools:
                 let view = IARDebugViewController(customCommands: [])
-                present(view, animated: true) // We recommend to present it as a modal.
+                self.navigationController?.pushViewController(view, animated: true)
             case .userManagement:
                 let view = UserManagementViewController()
                 self.navigationController?.pushViewController(view, animated: true)
@@ -139,5 +139,17 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         section == 0 ? self.sectionHeight : 0
+    }
+}
+
+// A small extension to make the navigation bar hide when keyboard appears
+extension IARDebugViewController {
+    
+    override public func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.hidesBarsWhenKeyboardAppears = true
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.navigationController?.isNavigationBarHidden = false
     }
 }
