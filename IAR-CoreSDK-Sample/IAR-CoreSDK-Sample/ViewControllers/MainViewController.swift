@@ -146,3 +146,21 @@ extension MainViewController: UITableViewDataSource {
         section == 0 ? self.sectionHeight : 0
     }
 }
+
+// A small extension to make the navigation bar hide when keyboard appears
+extension IARDebugViewController {
+    
+    override public func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.hidesBarsWhenKeyboardAppears = true
+        super.viewDidAppear(animated)
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    public override func viewDidDisappear(_ animated: Bool) {
+        self.navigationController?.hidesBarsWhenKeyboardAppears = false
+        super.viewDidDisappear(animated)
+    }
+}

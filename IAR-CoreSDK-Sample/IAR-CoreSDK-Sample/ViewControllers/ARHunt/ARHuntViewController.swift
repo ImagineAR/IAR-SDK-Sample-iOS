@@ -52,6 +52,7 @@ class ARHuntViewController: UIViewController {
     private func setupView() {
         // Navigation setup
         self.navigationController?.title = "AR Hunts"
+        self.navigationController?.hidesBarsWhenKeyboardAppears = false
         
         // TableView setup
         self.tableView.delegate = self
@@ -100,7 +101,7 @@ class ARHuntViewController: UIViewController {
         // Will try to find and show the hunt by ID
         IARNetworkManager.shared().retrieveHunt(id) { hunt, error in
             if let error = error {
-                print(error.localizedDescription)
+                self.present(UIAlertController.defaultDialog(title: "ID not found", message: "We couldn't find a hunt using this ID. - Error: \(error.localizedDescription)"), animated: true, completion: nil)
             }
             
             else {

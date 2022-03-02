@@ -59,6 +59,7 @@ class LocationMarkersViewController: UIViewController {
     private func setupView() {
         // Navigation setup
         self.navigationController?.title = "Location Markers"
+        self.navigationController?.hidesBarsWhenKeyboardAppears = false
         
         // TableView setup
         self.tableView.delegate = self
@@ -84,7 +85,7 @@ class LocationMarkersViewController: UIViewController {
     
     private func updateLocation() {
         UserDefaults.standard.set("\(self.latitude);\(self.longitude)", forKey: "SimulatedLocation")
-        self.coordinatesLabel.text = "Coordinates: \(self.latitude);\(self.longitude). Radius: \(self.radius)"
+        self.coordinatesLabel.text = String(format: "Coordinates %.2f;%.2f. Radius: %.2f", self.longitude, self.latitude, self.radius)
     }
     
     
@@ -149,8 +150,8 @@ class LocationMarkersViewController: UIViewController {
     }
     
     private func onTakeMeThereButton(latitude: Double, longitude: Double) {
-        let latitudeString = String(format: "%.2f", latitude)
-        let longitudeString = String(format: "%.2f", longitude)
+        let latitudeString = latitude
+        let longitudeString = longitude
         
         self.updateCoordinates("\(latitudeString);\(longitudeString)")
     }

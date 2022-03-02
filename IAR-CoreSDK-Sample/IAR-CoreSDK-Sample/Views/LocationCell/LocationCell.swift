@@ -42,7 +42,7 @@ class LocationCell: UITableViewCell {
         self.nameLabel.text = marker.name
         self.idLabel.text = marker.markerId
         self.setupThumbnail(thumbnailUrl: marker.previewImageUrl)
-        self.locationDescriptionLabel.text = String(format: "Distance: %.2f", location.distance)
+        self.locationDescriptionLabel.text = String(format: "Distance: %.0f", location.distance)
         self.stateLabel.text = location.isNearby() ? "Nearby" : "Far"
         
         self.markerLatitude = location.latitude

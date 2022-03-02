@@ -99,7 +99,6 @@ extension MainViewController: UITableViewDelegate {
                 self.performSegue(withIdentifier: "segueScanARTarget", sender: self)
             case .debugTools:
                 let view = IARDebugViewController(customCommands: [])
-                view.title = "Debug Tools"
                 self.navigationController?.pushViewController(view, animated: true)
             case .userManagement:
                 let view = UserManagementViewController()
@@ -135,3 +134,16 @@ extension MainViewController: UITableViewDataSource {
         section == 0 ? self.sectionHeight : 0
     }
 }
+
+// A small extension to make the navigation bar hide when keyboard appears
+extension IARDebugViewController {
+    
+    override public func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.hidesBarsWhenKeyboardAppears = true
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+}
+
