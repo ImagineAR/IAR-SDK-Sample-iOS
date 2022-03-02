@@ -52,6 +52,7 @@ class ARHuntViewController: UIViewController {
     private func setupView() {
         // Navigation setup
         self.navigationController?.title = "AR Hunts"
+        self.navigationController?.hidesBarsWhenKeyboardAppears = false
         
         // TableView setup
         self.tableView.delegate = self

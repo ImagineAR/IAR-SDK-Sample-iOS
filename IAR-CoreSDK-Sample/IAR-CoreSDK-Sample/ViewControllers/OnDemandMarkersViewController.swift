@@ -52,6 +52,7 @@ class OnDemandMarkersViewController: UIViewController {
     private func setupView() {
         // Navigation setup
         self.navigationController?.title = "On Demand Markers"
+        self.navigationController?.hidesBarsWhenKeyboardAppears = false
         
         // TableView setup
         self.tableView.delegate = self
