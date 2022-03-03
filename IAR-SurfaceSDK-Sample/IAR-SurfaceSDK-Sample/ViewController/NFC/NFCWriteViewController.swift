@@ -18,11 +18,13 @@ class NFCWriteViewController: UITableViewController {
     @IBOutlet weak var textMarkerID: UITextField!
     @IBOutlet weak var imageWriteTag: UIImageView!
     @IBOutlet weak var imageRandomize: UIImageView!
+    @IBOutlet weak var imagePickMarker: UIImageView!
     @IBOutlet weak var labelResult: UILabel!
     
     private enum RowID: Int {
         case writeTag = 1
         case randomize = 2
+        case pickMarker = 3
     }
     
     // MARK: - Lifecycle
@@ -38,6 +40,7 @@ class NFCWriteViewController: UITableViewController {
         let smallConfiguration = UIImage.SymbolConfiguration(scale: .large)
         imageWriteTag.image = UIImage(systemName: "checkmark.circle.fill", withConfiguration: smallConfiguration)
         imageRandomize.image = UIImage(systemName: "dice", withConfiguration: smallConfiguration)
+        imagePickMarker.image = UIImage(systemName: "ellipsis.circle.fill", withConfiguration: smallConfiguration)
     }
     
     // MARK: - Methods
@@ -70,6 +73,17 @@ class NFCWriteViewController: UITableViewController {
         }
     }
     
+    private func pickMarker() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let onDemandViewController = storyboard.instantiateViewController(identifier: "OnDemandMarkersViewController") as? OnDemandMarkersViewController else {
+            return
+        }
+
+        onDemandViewController.viewMode = .Picker
+        onDemandViewController.delegate = self
+        present(onDemandViewController, animated: true)
+    }
+    
     // MARK: - TableView Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let rowID = RowID(rawValue: indexPath.row) else {
@@ -81,6 +95,14 @@ class NFCWriteViewController: UITableViewController {
                 writeTag(textMarkerID.text)
             case .randomize:
                 randomizeID()
+            case .pickMarker:
+                pickMarker()
         }
+    }
+}
+
+extension NFCWriteViewController: OnDemandMarkersViewControllerDelegate {
+    func didSelectMarker(markerId: String) {
+        textMarkerID.text = markerId
     }
 }

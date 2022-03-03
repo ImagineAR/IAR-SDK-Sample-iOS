@@ -128,8 +128,29 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="MrQ-fF-MV0">
+                                        <rect key="frame" x="0.0" y="175" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MrQ-fF-MV0" id="Rd9-Dm-NPp">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick an On-Demand Marker..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfd-Fv-2U2">
+                                                    <rect key="frame" x="78" y="0.0" width="316" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7og-b2-hbR">
+                                                    <rect key="frame" x="20" y="5" width="33" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="205" id="c8n-So-1gq">
-                                        <rect key="frame" x="0.0" y="175" width="414" height="205"/>
+                                        <rect key="frame" x="0.0" y="218.5" width="414" height="205"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c8n-So-1gq" id="Mdv-vd-s2k">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="205"/>
@@ -155,6 +176,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="UOI-nl-eKf"/>
                     <connections>
+                        <outlet property="imagePickMarker" destination="7og-b2-hbR" id="Ges-mH-T5l"/>
                         <outlet property="imageRandomize" destination="f8k-lf-i6o" id="HDx-Y5-UDy"/>
                         <outlet property="imageWriteTag" destination="DTa-hm-sVX" id="vvQ-ga-YkP"/>
                         <outlet property="labelResult" destination="3im-Jm-Zle" id="U3f-iw-lDi"/>
@@ -311,7 +333,7 @@
         <!--Surface View Controller-->
         <scene sceneID="oG4-zt-1ZK">
             <objects>
-                <viewController id="2ku-1T-288" customClass="SurfaceViewController" customModule="IAR_SurfaceSDK_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SurfaceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2ku-1T-288" customClass="SurfaceViewController" customModule="IAR_SurfaceSDK_Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="tBe-hc-TZk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -421,7 +443,7 @@
         <!--OnDemand Markers-->
         <scene sceneID="Iay-1Q-YCs">
             <objects>
-                <viewController title="OnDemand Markers" id="LVQ-u0-Gk4" customClass="OnDemandMarkersViewController" customModule="IAR_SurfaceSDK_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnDemandMarkersViewController" title="OnDemand Markers" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LVQ-u0-Gk4" customClass="OnDemandMarkersViewController" customModule="IAR_SurfaceSDK_Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aEb-xI-Us2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -453,6 +475,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="On Demand Markers" id="avQ-ai-als"/>
                     <connections>
+                        <outlet property="buttonGetMarkerById" destination="x1s-tn-68l" id="eXi-0v-6Aw"/>
                         <outlet property="tableView" destination="71R-vb-b20" id="ipo-6c-Hj3"/>
                         <segue destination="2ku-1T-288" kind="show" identifier="segueSurface" id="7JY-I4-sA3"/>
                     </connections>

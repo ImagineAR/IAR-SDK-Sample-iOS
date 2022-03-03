@@ -9,18 +9,30 @@ import UIKit
 import IAR_Core_SDK
 import RappleProgressHUD
 
+protocol OnDemandMarkersViewControllerDelegate {
+    func didSelectMarker(markerId: String)
+}
+
 class OnDemandMarkersViewController: UIViewController {
+    
+    // Default mode will display the markers after selection
+    // Picker mode will return the selected marker to a given delegate
+    enum OnDemandMarkersViewMode {
+        case Default
+        case Picker
+    }
 
     // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var buttonGetMarkerById: UIButton!
     
     // MARK: - Properties
 
     var onDemandMarkerList: [Marker] = []
     var selectedMarker: Marker?
-    
+    var viewMode: OnDemandMarkersViewMode = .Default
+    var delegate: OnDemandMarkersViewControllerDelegate? = nil
     
     // MARK: - Lifecycle
     
@@ -150,12 +162,18 @@ extension OnDemandMarkersViewController: UITableViewDelegate {
         // Stops the table view from opening multiple new screens when one is selected
         tableView.isUserInteractionEnabled = false
         
-        let currentMarker = self.onDemandMarkerList[indexPath.row]
+        let currentMarker = onDemandMarkerList[indexPath.row]
         
-        // To interact with a marker, get it's rewards and move foward in a hunt
-        // The method IARNetworkManager.shared().downloadMarker(id) needs to be called
-        // Or else it will not count as an interaction
-        self.retrieveMarker(currentMarker.markerId)
+        switch viewMode {
+            case .Default:
+                // To interact with a marker, get it's rewards and move foward in a hunt
+                // The method IARNetworkManager.shared().downloadMarker(id) needs to be called
+                // Or else it will not count as an interaction
+                retrieveMarker(currentMarker.markerId)
+            case .Picker:
+                delegate?.didSelectMarker(markerId: currentMarker.markerId)
+                dismiss(animated: true)
+        }
     }
 }
 

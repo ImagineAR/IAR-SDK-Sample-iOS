@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
+import IAR_Core_SDK
 import IAR_NFC_SDK
+import RappleProgressHUD
 
 class NFCReadViewController: UITableViewController {
     
@@ -62,7 +64,9 @@ class NFCReadViewController: UITableViewController {
                 self?.writeResponse("\(result)")
                 print("Result: \(marker)")
                 
-                self?.scannedMarker = marker
+                DispatchQueue.main.async {
+                    self?.scannedMarker = marker
+                }
             }
         } else {
             let alert = UIAlertController.defaultDialog(title: "Unavailable",
@@ -73,11 +77,16 @@ class NFCReadViewController: UITableViewController {
     
     private func gotoTag() {
         guard let tag = scannedMarker else {
+            let alert = UIAlertController.defaultDialog(title: "No markers scanned",
+                                                        message: "Scan a valid NFC tag first")
+            self.present(alert, animated: true, completion: nil)
             return
         }
         
-        // TODO: After surfaceview is ready, call it with this markerID
-        print("\(tag)")
+        print("NFC Tag information: \(tag)")
+        tableView.isUserInteractionEnabled = false
+        
+        retrieveMarker(tag.id)
     }
     
     private func writeResponse(_ response: String) {
@@ -86,6 +95,42 @@ class NFCReadViewController: UITableViewController {
         }
         print(response)
 
+    }
+    
+    func retrieveMarker(_ id: String) {
+        // Show loading while retrieving and downloading the marker
+        RappleActivityIndicatorView.startAnimating()
+        
+        // Will try to find and show the marker by ID
+        IARNetworkManager.shared().downloadMarker(id) { [weak self] marker, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            // Hide Loading indicator
+            RappleActivityIndicatorView.stopAnimation()
+            
+            // If it couldn't find, show a message
+            guard let marker = marker else {
+                DispatchQueue.main.async {
+                    self?.present(UIAlertController.defaultDialog(title: "ID not found", message: "We couldn't find a marker using this ID."), animated: true, completion: nil)
+                }
+                
+                // re-enable the user interaction if it failed to retrieve the marker
+                self?.tableView.isUserInteractionEnabled = true
+                return
+            }
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let surfaceViewController = storyboard.instantiateViewController(identifier: "SurfaceViewController") as? SurfaceViewController else {
+                return
+            }
+
+            surfaceViewController.marker = marker
+            self?.present(surfaceViewController, animated: true)
+        } progressCallback: { progress in
+            print(progress)
+        }
     }
 
     // MARK: - TableView Delegate
