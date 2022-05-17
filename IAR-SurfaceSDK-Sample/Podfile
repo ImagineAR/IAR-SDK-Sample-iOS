@@ -6,21 +6,21 @@ def pod_common
   # https://github.com/onevcat/Kingfisher
   # Kingfisher is an image-centric library: used in the sample app for
   # filesystem caching, download management and jpg progressive loading
-  pod 'Kingfisher',       '7.0.0'
+  pod 'Kingfisher',       '~> 7.0.0'
 
   # https://github.com/rjeprasad/RappleProgressHUD
   # Simple progress dialog ontop, used for quickly showing a 'busy state'
   # while downloading assets and other network intensive operations
-  pod 'RappleProgressHUD','4.1'
+  pod 'RappleProgressHUD','~> 4.1'
 end
 
 def pod_surfaceSample
   # pod 'IAR-Core',       '1.5.0-beta6'
   # pod 'IAR-Surface',    '1.5.0-beta6'
   # pod 'IAR-NFC',        '1.5.0-beta6'
-  pod 'ImagineAR-Core',    '~> 1.5.0'
-  pod 'ImagineAR-Surface', '~> 1.5.0'
-  pod 'ImagineAR-NFC',     '~> 1.5.0'
+  pod 'ImagineAR-Core',    '1.5.1'
+  pod 'ImagineAR-Surface', '1.5.1'
+  pod 'ImagineAR-NFC',     '1.5.1'
   pod_common
 end
 

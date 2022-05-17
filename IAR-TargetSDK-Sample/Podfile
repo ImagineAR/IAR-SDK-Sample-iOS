@@ -5,8 +5,8 @@ platform :ios, '13.0'
 def pod_targetSample
   # pod 'IAR-Core',   '1.5.0-beta6'
   # pod 'IAR-Target', '1.5.0-beta6'
-  pod 'ImagineAR-Core',    '~> 1.5.0'
-  pod 'ImagineAR-Target',  '~> 1.5.0'
+  pod 'ImagineAR-Core',    '1.5.1'
+  pod 'ImagineAR-Target',  '1.5.1'
 end
 
 def pod_targetSample_local
