@@ -32,6 +32,7 @@ class MainViewController: UIViewController {
         
         setupView()
         setupLicense()
+        setupKeyboardBehaviour()
     }
 
     
@@ -87,6 +88,24 @@ class MainViewController: UIViewController {
                 FileLogger.shared.log(content: "New User ID: \(userId)")
             }
         }
+    }
+    
+    // MARK: - Keyboard
+    
+    // Hides navigation bar when the keyboard appears in any view that has a navigation Controller
+    // This is not required to integrate the IAR-SDK.
+    // Useful for the Debug Tools View to follow the established constraints
+    private func setupKeyboardBehaviour() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.navigationController?.isNavigationBarHidden = false
     }
 }
 
@@ -147,20 +166,3 @@ extension MainViewController: UITableViewDataSource {
     }
 }
 
-// A small extension to make the navigation bar hide when keyboard appears
-extension IARDebugViewController {
-    
-    override public func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.hidesBarsWhenKeyboardAppears = true
-        super.viewDidAppear(animated)
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
-    public override func viewDidDisappear(_ animated: Bool) {
-        self.navigationController?.hidesBarsWhenKeyboardAppears = false
-        super.viewDidDisappear(animated)
-    }
-}
