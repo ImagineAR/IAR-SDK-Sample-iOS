@@ -56,7 +56,7 @@ commands:
     steps:
       - run:
           name: Install CocoaPods
-          command: cd ~/IAR-CoreSDK-Sample/ && bundle exec pod install
+          command: cd ~/project/IAR-CoreSDK-Sample/ && bundle exec pod install
 
   run_lane:
     description: "Get dependencies, run specified Fastlane lane, store artifacts"
