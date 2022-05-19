@@ -53,11 +53,10 @@ executors:
 commands:
   install_deps:
     description: "Install Dependencies"
-    working_directory: /Users/distiller/project/IAR-CoreSDK-Sample
     steps:
       - run:
           name: Install CocoaPods
-          command: ls -lha && bundle exec pod install
+          command: cd ~/IAR-CoreSDK-Sample/ && bundle exec pod install
 
   run_lane:
     description: "Get dependencies, run specified Fastlane lane, store artifacts"
