@@ -56,6 +56,9 @@ commands:
     description: "Install Dependencies"
     steps:
       - run:
+          name: Check current directory
+          command: pwd
+      - run:
           name: Install CocoaPods
           command: bundle exec pod install
 
