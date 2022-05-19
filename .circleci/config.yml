@@ -53,10 +53,8 @@ executors:
 commands:
   install_deps:
     description: "Install Dependencies"
+    working_directory: /Users/distiller/project/IAR-CoreSDK-Sample
     steps:
-      - run:
-          name: Check current directory
-          command: pwd && ls -lha
       - run:
           name: Install CocoaPods
           command: ls -lha && bundle exec pod install
@@ -77,6 +75,8 @@ commands:
         type: string
         default: ""
     steps:
+        working_directory: /Users/distiller/project/IAR-CoreSDK-Sample
+
       # Git
       - checkout
 
