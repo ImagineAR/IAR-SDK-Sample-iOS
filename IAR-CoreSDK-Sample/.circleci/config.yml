@@ -6,7 +6,7 @@ orbs:
 
 # Anchors
 fastlane:
-    - &all_lanes [adhoc, unit_test, run_ui_test, dsym, release]
+    - &all_lanes [adhoc, unit_test]
 tags:
     - &release_tag /^[0-9]+\.[0-9]+\.[0-9]+\_[0-9]+/ # MAJOR.MINOR.PATCH_BUILD
 
@@ -108,27 +108,11 @@ jobs:
       - run_lane:
           lane: unit_test
           distributes: false
-  ui_test:
-    executor: ios
-    steps:
-      - run_lane:
-          lane: run_ui_test
-  release:
-    executor: ios
-    steps:
-      - run_lane:
-          lane: release
   adhoc-beta:
     executor: ios
     steps:
       - run_lane:
           lane: adhoc
-  upload-dsyms:
-    executor: ios
-    steps:
-      - run_lane:
-          lane: dsym
-          parameters: "min_version:4.3.0"
 
 workflows:
   # nightly:
@@ -139,13 +123,13 @@ workflows:
   #   jobs:
   #     - upload-dsyms
 
-  nightly-staging:
-    triggers:
-      - schedule:
-          cron: "0 8 * * *" # every day at 8am UTC (3am CDT)
-          <<: *filter_staging_branch_only
-    jobs:
-      - ui_test
+  # nightly-staging:
+  #   triggers:
+  #     - schedule:
+  #         cron: "0 8 * * *" # every day at 8am UTC (3am CDT)
+  #         <<: *filter_staging_branch_only
+  #   jobs:
+  #     - ui_test
 
   auto_unit_test:
     jobs:
@@ -159,8 +143,6 @@ workflows:
   hold_beta:
     jobs:
       # Approvals
-      - enterprise:
-          type: approval
       - adhoc:
           type: approval
       - adhoc-beta:
