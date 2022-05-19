@@ -93,13 +93,13 @@ commands:
           steps:
             - run:
                 name: Decode Certificates
-                command: base64 -D -o Certificates.p12 <<< $Certificates && ls -lha
+                command: base64 -D -o Certificates.p12 \<<< $Certificates && ls -lha
             - run:
                 name: Rebuild Provisioning Profiles directory
                 command: mkdir -pv ~/Library/MobileDevice/Provisioning\ Profiles/
             - run:
                 name: Decode Provisioning Profiles
-                command: base64 -D -o ~/Library/MobileDevice/Provisioning\ Profiles/CoreDistribution.mobileprovision <<< $CoreDistributionProfile && ls -lha
+                command: base64 -D -o ~/Library/MobileDevice/Provisioning\ Profiles/CoreDistribution.mobileprovision \<<< $CoreDistributionProfile && ls -lha
 
       # Artifacts
       - store_test_results:
