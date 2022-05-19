@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Runs unit tests on the Core Sample
 
+### ios adhoc
+
+```sh
+[bundle exec] fastlane ios adhoc
+```
+
+
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

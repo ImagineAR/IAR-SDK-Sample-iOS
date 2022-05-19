@@ -5,13 +5,13 @@
     <testcase classname='IAR_CoreSDK_SampleTests.MainViewControllerSpecs' name='the_MainViewController__init__should_not_leak' time='0.004'/>
   </testsuite>
   <testsuite name='IAR_CoreSDK_SampleUITests.IAR_CoreSDK_SampleUITests' tests='2' failures='0'>
-    <testcase classname='IAR_CoreSDK_SampleUITests.IAR_CoreSDK_SampleUITests' name='testExample' time='1.495'/>
-    <testcase classname='IAR_CoreSDK_SampleUITests.IAR_CoreSDK_SampleUITests' name='testLaunchPerformance' time='74.528'/>
+    <testcase classname='IAR_CoreSDK_SampleUITests.IAR_CoreSDK_SampleUITests' name='testExample' time='1.499'/>
+    <testcase classname='IAR_CoreSDK_SampleUITests.IAR_CoreSDK_SampleUITests' name='testLaunchPerformance' time='74.541'/>
   </testsuite>
   <testsuite name='IAR_CoreSDK_SampleUITests.IAR_CoreSDK_SampleUITestsLaunchTests' tests='4' failures='0'>
-    <testcase classname='IAR_CoreSDK_SampleUITests.IAR_CoreSDK_SampleUITestsLaunchTests' name='testLaunch' time='4.652'/>
-    <testcase classname='IAR_CoreSDK_SampleUITests.IAR_CoreSDK_SampleUITestsLaunchTests' name='testLaunch' time='4.651'/>
-    <testcase classname='IAR_CoreSDK_SampleUITests.IAR_CoreSDK_SampleUITestsLaunchTests' name='testLaunch' time='2.964'/>
-    <testcase classname='IAR_CoreSDK_SampleUITests.IAR_CoreSDK_SampleUITestsLaunchTests' name='testLaunch' time='4.683'/>
+    <testcase classname='IAR_CoreSDK_SampleUITests.IAR_CoreSDK_SampleUITestsLaunchTests' name='testLaunch' time='3.177'/>
+    <testcase classname='IAR_CoreSDK_SampleUITests.IAR_CoreSDK_SampleUITestsLaunchTests' name='testLaunch' time='4.994'/>
+    <testcase classname='IAR_CoreSDK_SampleUITests.IAR_CoreSDK_SampleUITestsLaunchTests' name='testLaunch' time='3.467'/>
+    <testcase classname='IAR_CoreSDK_SampleUITests.IAR_CoreSDK_SampleUITestsLaunchTests' name='testLaunch' time='5.030'/>
   </testsuite>
 </testsuites>

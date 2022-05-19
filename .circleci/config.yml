@@ -80,7 +80,7 @@ commands:
       # Install Dependencies
       - run:
           name: Install Bundle Dependencies
-          command: bundle config set --local path 'vendor/bundle' && bundle install
+          command: cd IAR-CoreSDK-Sample && bundle config set --local path 'vendor/bundle' && bundle install
       - install_deps
 
       # Fastlane
