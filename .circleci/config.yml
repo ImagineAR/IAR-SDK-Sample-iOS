@@ -83,11 +83,6 @@ commands:
           command: bundle config set --local path 'vendor/bundle' && cd IAR-CoreSDK-Sample && bundle install
       - install_deps
 
-      # Fastlane
-      - run:
-          name: Fastlane
-          command: cd IAR-CoreSDK-Sample && bundle exec fastlane << parameters.lane >> << parameters.parameters >>
-          no_output_timeout: 30m
       - when:
           condition: << parameters.distributes >>
           steps:
@@ -100,6 +95,12 @@ commands:
             - run:
                 name: Decode Provisioning Profiles
                 command: base64 -D -o ~/Library/MobileDevice/Provisioning\ Profiles/CoreDistribution.mobileprovision \<<< $CoreDistributionProfile && ls -lha
+
+      # Fastlane
+      - run:
+          name: Fastlane
+          command: cd IAR-CoreSDK-Sample && bundle exec fastlane << parameters.lane >> << parameters.parameters >>
+          no_output_timeout: 30m
 
       # Artifacts
       - store_test_results:
