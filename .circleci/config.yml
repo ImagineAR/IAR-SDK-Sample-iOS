@@ -75,8 +75,6 @@ commands:
         type: string
         default: ""
     steps:
-        working_directory: /Users/distiller/project/IAR-CoreSDK-Sample
-
       # Git
       - checkout
 
