@@ -42,7 +42,7 @@ executors:
   ios:
     macos:
       xcode: 13.3
-    working_directory: /Users/distiller/project
+    working_directory: /Users/distiller/project/IAR-CoreSDK-Sample
     shell: /bin/bash --login -eo pipefail
     environment:
       FL_OUTPUT_DIR: output
@@ -56,7 +56,7 @@ commands:
     steps:
       - run:
           name: Check current directory
-          command: pwd && ls -lha && cd IAR-CoreSDK-Sample
+          command: pwd && ls -lha
       - run:
           name: Install CocoaPods
           command: ls -lha && bundle exec pod install
