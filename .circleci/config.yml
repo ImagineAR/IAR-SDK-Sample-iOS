@@ -88,6 +88,18 @@ commands:
           name: Fastlane
           command: cd IAR-CoreSDK-Sample && bundle exec fastlane << parameters.lane >> << parameters.parameters >>
           no_output_timeout: 30m
+      - when:
+          condition: << parameters.distributes >>
+          steps:
+            - run:
+                name: Decode Certificates
+                command: base64 -D -o Certificates.p12 <<< $Certificates && ls -lha
+            - run:
+                name: Rebuild Provisioning Profiles directory
+                command: mkdir -pv ~/Library/MobileDevice/Provisioning\ Profiles/
+            - run:
+                name: Decode Provisioning Profiles
+                command: base64 -D -o ~/Library/MobileDevice/Provisioning\ Profiles/CoreDistribution.mobileprovision <<< $CoreDistributionProfile && ls -lha
 
       # Artifacts
       - store_test_results:
@@ -114,6 +126,7 @@ jobs:
     steps:
       - run_lane:
           lane: adhoc
+          distributes: true
 
 workflows:
   # nightly:
