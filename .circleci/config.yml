@@ -86,7 +86,7 @@ commands:
       # Fastlane
       - run:
           name: Fastlane
-          command: /Users/distiller/project/IAR-CoreSDK-Sample/bundle exec fastlane << parameters.lane >> << parameters.parameters >>
+          command: cd IAR-CoreSDK-Sample && bundle exec fastlane << parameters.lane >> << parameters.parameters >>
           no_output_timeout: 30m
 
       # Artifacts
