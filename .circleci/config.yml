@@ -150,19 +150,3 @@ workflows:
       - adhoc-beta:
           requires:
             - adhoc
-
-  auto_assemble_release:
-    jobs:
-      - release:
-            <<: *filter_release_tag_only
-  #     - partners-beta:
-  #           <<: *filter_release_tag_only
-  #     - dsym-approval:
-  #           <<: *filter_release_tag_only
-  #           type: approval
-  #           requires:
-  #             - release
-  #     - upload-dsyms:
-  #           <<: *filter_release_tag_only
-  #           requires:
-  #             - dsym-approval
