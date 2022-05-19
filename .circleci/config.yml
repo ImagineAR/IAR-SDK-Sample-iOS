@@ -57,7 +57,7 @@ commands:
     steps:
       - run:
           name: Check current directory
-          command: pwd && ls -lha
+          command: pwd && ls -lha && cd IAR-CoreSDK-Sample
       - run:
           name: Install CocoaPods
           command: bundle exec pod install
