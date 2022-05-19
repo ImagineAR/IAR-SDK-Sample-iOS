@@ -1,0 +1,184 @@
+version: 2.1
+
+# Environment
+orbs:
+  macos: circleci/macos@2
+
+# Anchors
+fastlane:
+    - &all_lanes [adhoc, unit_test, run_ui_test, dsym, release]
+tags:
+    - &release_tag /^[0-9]+\.[0-9]+\.[0-9]+\_[0-9]+/ # MAJOR.MINOR.PATCH_BUILD
+
+workflow_filters:
+  - &filter_release_tag_only
+    filters:
+      branches:
+        ignore: /.*/
+      tags:
+        only: *release_tag
+  - &filter_beta_branches_only
+    filters:
+      branches:
+        only:
+          - staging
+          - develop
+  - &filter_staging_branch_only
+    filters:
+      branches:
+        only:
+          - staging
+  - &filter_master_branch_only
+    filters:
+      branches:
+        only:
+          - master
+
+# Config
+
+executors:
+  ios:
+    macos:
+      xcode: 13.3
+    working_directory: /Users/distiller/project
+    shell: /bin/bash --login -eo pipefail
+    environment:
+      FL_OUTPUT_DIR: output
+      LC_ALL: en_US.UTF-8
+      LANG: en_US.UTF-8
+
+
+commands:
+
+  install_deps:
+    description: "Install Dependencies"
+    steps:
+      - run:
+          name: Install CocoaPods
+          command: bundle exec pod install
+
+  run_lane:
+    description: "Get dependencies, run specified Fastlane lane, store artifacts"
+    parameters:
+      lane:
+        type: enum
+        enum: *all_lanes
+      cached:
+        type: boolean
+        default: true
+      distributes:
+        type: boolean
+        default: false
+      parameters:
+        type: string
+        default: ""
+    steps:
+      # Git
+      - checkout
+
+      # Install Dependencies
+      - run:
+          name: Install Bundle Dependencies
+          command: bundle config set --local path 'vendor/bundle' && bundle install
+      - install_deps
+
+      # Fastlane
+      - run:
+          name: Fastlane
+          command: bundle exec fastlane << parameters.lane >> << parameters.parameters >>
+          no_output_timeout: 30m
+
+      # Artifacts
+      - store_test_results:
+          path: output/scan
+      - store_artifacts:
+          path: "./fastlane/test_output"
+      - store_artifacts:
+          path: ~/Library/Logs/scan
+          destination: scan-logs
+      - store_artifacts:
+          path: logs
+      - store_artifacts:
+          path: culprits.txt
+
+jobs:
+  unit_test:
+    executor: ios
+    steps:
+      - run_lane:
+          lane: unit_test
+          distributes: false
+  ui_test:
+    executor: ios
+    steps:
+      - run_lane:
+          lane: run_ui_test
+  release:
+    executor: ios
+    steps:
+      - run_lane:
+          lane: release
+  adhoc-beta:
+    executor: ios
+    steps:
+      - run_lane:
+          lane: adhoc
+  upload-dsyms:
+    executor: ios
+    steps:
+      - run_lane:
+          lane: dsym
+          parameters: "min_version:4.3.0"
+
+workflows:
+  # nightly:
+  #   triggers:
+  #     - schedule:
+  #         cron: "0 8 * * *" # every day at 8am UTC (3am CDT)
+  #         <<: *filter_master_branch_only
+  #   jobs:
+  #     - upload-dsyms
+
+  nightly-staging:
+    triggers:
+      - schedule:
+          cron: "0 8 * * *" # every day at 8am UTC (3am CDT)
+          <<: *filter_staging_branch_only
+    jobs:
+      - ui_test
+
+  auto_unit_test:
+    jobs:
+      - unit_test
+
+  # auto_beta:
+  #   jobs:
+      # - enterprise-beta:
+      #     <<: *filter_beta_branches_only
+
+  hold_beta:
+    jobs:
+      # Approvals
+      - enterprise:
+          type: approval
+      - adhoc:
+          type: approval
+      - adhoc-beta:
+          requires:
+            - adhoc
+
+  auto_assemble_release:
+    jobs:
+      - release:
+            <<: *filter_release_tag_only
+  #     - partners-beta:
+  #           <<: *filter_release_tag_only
+  #     - dsym-approval:
+  #           <<: *filter_release_tag_only
+  #           type: approval
+  #           requires:
+  #             - release
+  #     - upload-dsyms:
+  #           <<: *filter_release_tag_only
+  #           requires:
+  #             - dsym-approval
