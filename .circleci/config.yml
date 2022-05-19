@@ -4,6 +4,8 @@ version: 2.1
 orbs:
   macos: circleci/macos@2
 
+working_directory: ~/IAR-CoreSDK-Sample/
+
 # Anchors
 fastlane:
     - &all_lanes [adhoc, unit_test]
