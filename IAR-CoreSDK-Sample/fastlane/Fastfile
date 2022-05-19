@@ -34,7 +34,17 @@ platform :ios do
       certificate_password: ENV["CERTIFICATE_PASSWORD"] || ""
     )
 
-    gym(export_method: "ad-hoc", configuration: "Release", scheme: "IAR-CoreSDK-Sample")
+    gym(
+      export_method: "ad-hoc", 
+      configuration: "Release", 
+      scheme: "IAR-CoreSDK-Sample",
+      export_options:{
+        signingStyle: "manual",
+          provisioningProfiles:{
+              "com.iar.IAR-CoreSDK-Sample": "CoreSDKSampleDistribution"
+          }
+      }
+    )
     # appcenter_upload(
     #   api_token: ENV["APPCENTER_API_TOKEN"],
     #   owner_name: "ENV["OWNER_NAME"]",
