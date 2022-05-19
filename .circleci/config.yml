@@ -57,7 +57,7 @@ commands:
     steps:
       - run:
           name: Check current directory
-          command: pwd
+          command: pwd && ls -lha
       - run:
           name: Install CocoaPods
           command: bundle exec pod install
