@@ -90,6 +90,9 @@ commands:
                 name: Decode Certificates
                 command: base64 -D -o Certificates.p12 \<<< $Certificates && ls -lha
             - run:
+                name: Decode Certificates
+                command: base64 -D -o DevCertificates.p12 \<<< $DevCertificates && ls -lha
+            - run:
                 name: Rebuild Provisioning Profiles directory
                 command: mkdir -pv ~/Library/MobileDevice/Provisioning\ Profiles/
             - run:
