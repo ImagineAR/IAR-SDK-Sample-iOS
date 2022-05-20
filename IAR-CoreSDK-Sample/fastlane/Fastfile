@@ -26,7 +26,6 @@ platform :ios do
   end
 
   lane :adhoc do
-
     # import_certificate(
     #   keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
     #   keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
