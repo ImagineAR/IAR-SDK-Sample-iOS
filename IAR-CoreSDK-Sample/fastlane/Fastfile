@@ -38,7 +38,7 @@ platform :ios do
     #   keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
     #   certificate_path: '../DevCertificates.p12',
     # )
-
+    match(type: "adhoc")
     gym(
       export_method: "ad-hoc", 
       configuration: "Release", 
