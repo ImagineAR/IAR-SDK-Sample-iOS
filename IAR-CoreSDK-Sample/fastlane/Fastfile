@@ -28,13 +28,13 @@ platform :ios do
   lane :adhoc do
     match(type: "adhoc")
     gym(export_method: "ad-hoc",  configuration: "Release", scheme: "IAR-CoreSDK-Sample")
-    # appcenter_upload(
-    #   api_token: ENV["APPCENTER_API_TOKEN"],
-    #   owner_name: "ENV["OWNER_NAME"]",
-    #   owner_type: "user",
-    #   destinations: "Collaborators",
-    #   app_name: "Famedays-iOS",
-    #   notify_testers: true
-    # )
+    appcenter_upload(
+      api_token: ENV["APPCENTER_API_TOKEN"],
+      owner_name: ENV["OWNER_NAME"],
+      owner_type: "user",
+      destinations: "Collaborators",
+      app_name: "IAR-CoreSDK-Sample",
+      notify_testers: true
+    )
   end
 end
