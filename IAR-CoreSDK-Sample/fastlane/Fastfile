@@ -42,7 +42,8 @@ platform :ios do
     gym(
       export_method: "ad-hoc", 
       configuration: "Release", 
-      scheme: "IAR-CoreSDK-Sample"
+      scheme: "IAR-CoreSDK-Sample",
+      xcargs: "-allowProvisioningUpdates"
       # ,
       # export_options:{
       #   signingStyle: "manual",
