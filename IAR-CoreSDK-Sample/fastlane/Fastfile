@@ -27,17 +27,17 @@ platform :ios do
 
   lane :adhoc do
 
-    import_certificate(
-      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
-      keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
-      certificate_path: '../Certificates.p12',
-    )
+    # import_certificate(
+    #   keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+    #   keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+    #   certificate_path: '../Certificates.p12',
+    # )
 
-    import_certificate(
-      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
-      keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
-      certificate_path: '../DevCertificates.p12',
-    )
+    # import_certificate(
+    #   keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+    #   keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+    #   certificate_path: '../DevCertificates.p12',
+    # )
 
     gym(
       export_method: "ad-hoc", 
