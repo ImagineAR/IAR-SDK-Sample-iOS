@@ -43,7 +43,7 @@ platform :ios do
       export_method: "ad-hoc", 
       configuration: "Release", 
       scheme: "IAR-CoreSDK-Sample",
-      xcargs: "-allowProvisioningUpdates"
+
       # ,
       # export_options:{
       #   signingStyle: "manual",
