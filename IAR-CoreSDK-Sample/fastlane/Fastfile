@@ -42,13 +42,14 @@ platform :ios do
     gym(
       export_method: "ad-hoc", 
       configuration: "Release", 
-      scheme: "IAR-CoreSDK-Sample",
-      export_options:{
-        signingStyle: "manual",
-          provisioningProfiles:{
-              "com.iar.IAR-CoreSDK-Sample": "CoreSDKSampleDistribution"
-          }
-      }
+      scheme: "IAR-CoreSDK-Sample"
+      # ,
+      # export_options:{
+      #   signingStyle: "manual",
+      #     provisioningProfiles:{
+      #         "com.iar.IAR-CoreSDK-Sample": "CoreSDKSampleDistribution"
+      #     }
+      # }
     )
     # appcenter_upload(
     #   api_token: ENV["APPCENTER_API_TOKEN"],
