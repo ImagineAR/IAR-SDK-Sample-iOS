@@ -96,8 +96,11 @@ commands:
                 name: Rebuild Provisioning Profiles directory
                 command: mkdir -pv ~/Library/MobileDevice/Provisioning\ Profiles/
             - run:
-                name: Decode Provisioning Profiles
+                name: Decode Provisioning Profiles (Distribution)
                 command: base64 -D -o ~/Library/MobileDevice/Provisioning\ Profiles/CoreDistribution.mobileprovision \<<< $CoreDistributionProfile && ls -lha
+            - run:
+                name: Decode Provisioning Profiles (Development)
+                command: base64 -D -o ~/Library/MobileDevice/Provisioning\ Profiles/CoreDevelopment.mobileprovision \<<< $DevProfile && ls -lha
 
       # Fastlane
       - run:
