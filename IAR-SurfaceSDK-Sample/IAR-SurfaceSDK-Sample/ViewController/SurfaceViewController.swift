@@ -195,8 +195,8 @@ class SurfaceViewController: UIViewController {
         recordButton.isEnabled = false
         recorder.startRecordingVideo(using: self.surfaceView)
         
-        // For this example, it will stop recording after 5 seconds
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+        // For this example, it will stop recording after 30 seconds
+        DispatchQueue.main.asyncAfter(deadline: .now() + 30.0) {
             self.stopRecording()
         }
     }
