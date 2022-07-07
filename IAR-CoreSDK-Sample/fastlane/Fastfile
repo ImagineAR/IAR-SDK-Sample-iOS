@@ -33,7 +33,7 @@ platform :ios do
       owner_name: ENV["OWNER_NAME"],
       owner_type: "user",
       destinations: "Collaborators",
-      app_name: "IAR-SDK-Example-iOS",
+      app_name: "IAR-CoreSDK-Sample",
       notify_testers: true
     )
   end
