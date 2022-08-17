@@ -1,0 +1,9 @@
+app_identifier("com.iar.IAR-CoreSDK-Sample") # The bundle identifier of your app
+apple_id ENV["APPLE_ID"] || "rogerio@imaginear.com" # Your Apple email address
+
+itc_team_id("118999423") # App Store Connect Team ID
+team_id("88BZXYUZX6") # Developer Portal Team ID
+
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

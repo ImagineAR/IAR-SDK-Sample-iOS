@@ -22,6 +22,7 @@ else
   echo "🖥 - Swiftlint detected - skipping install..."
 fi
 
+
 which -s bundle
 if [[ $? != 0 ]] ; then
   echo "📚 - Bundler not installed... proceeding with install"
@@ -32,6 +33,8 @@ else
 fi
 
 bundle
+bundle update
+bundle install
 
 which -s pod
 if [[ $? != 0 ]] ; then

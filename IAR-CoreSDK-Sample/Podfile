@@ -3,29 +3,30 @@ source 'https://github.com/ImagineAR/IAR-SDK-Beta-Podspecs.git'
 source 'https://cdn.cocoapods.org/'
 platform :ios, '13.0'
 
-def pod_targetCore
-  #pod 'IAR-Core', '1.5.0-beta6'
-  pod 'ImagineAR-Core',    '1.5.1'
-  
+def pod_sampleApp
   # https://github.com/onevcat/Kingfisher
   # Kingfisher is an image-centric library: used in the sample app for
   # filesystem caching, download management and jpg progressive loading
-  pod 'Kingfisher',       '~> 7.0.0'
+  pod 'Kingfisher',         '7.0.0'
 end
 
-def pod_targetCore_local
+def pod_core
+  pod 'ImagineAR-Core',     '1.6.0'
+end
+
+def pod_core_beta
+  pod 'IAR-Core',           '1.6.0-beta1'
+end
+
+def pod_core_local
   pod 'IAR-Core',     :path => '../../iar-sdk-ios'
-  
-  # https://github.com/onevcat/Kingfisher
-  # Kingfisher is an image-centric library: used in the sample app for
-  # filesystem caching, download management and jpg progressive loading
-  pod 'Kingfisher',       '~> 7.0.0'
 end
 
 target 'IAR-CoreSDK-Sample' do
   use_frameworks!
   inhibit_all_warnings!  # ignore warnings emmited from pod sources
-  pod_targetCore
+  pod_core_beta
+  pod_sampleApp
 
   target 'IAR-CoreSDK-SampleTests' do
     inherit! :search_paths
