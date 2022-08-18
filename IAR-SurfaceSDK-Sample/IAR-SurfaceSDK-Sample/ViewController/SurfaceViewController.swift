@@ -28,8 +28,9 @@ class SurfaceViewController: UIViewController {
     // MARK: - Properties
     
     var marker: Marker?
-    private var recorder = IARRecorder()
-    
+    private var currentRecordingTime = 0
+    private var recorderV1 = IARRecorder()
+    private var recorderV2 = SurfaceRecorder()
     
     // MARK: - Surface instruction message
     
@@ -177,7 +178,7 @@ class SurfaceViewController: UIViewController {
     
     @IBAction func onScreenshotButton(_ sender: Any) {
         // Returns an UIImage for the Surface view
-        let screenshotImage: UIImage = recorder.takeScreenshot(self.surfaceView)
+        let screenshotImage: UIImage = recorderV1.takeScreenshot(self.surfaceView)
         
         // With that image, it's possible to present a share modal so the user can save or share wherever they want.
         // NOTE: To share, the user may need to give permission to contacts.
@@ -193,23 +194,32 @@ class SurfaceViewController: UIViewController {
     func startRecording() {
         // Hides the recording button. It can only record one video at a time
         recordButton.isEnabled = false
-        recorder.startRecordingVideo(using: self.surfaceView)
+        recorderV2.startRecording(surfaceView: self.surfaceView)
+        currentRecordingTime = 0
         
-        // For this example, it will stop recording after 5 seconds
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+        // For this example, it will stop recording after 30 seconds
+        DispatchQueue.main.asyncAfter(deadline: .now() + 30.0) {
             self.stopRecording()
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+            guard let self = self else {
+                return
+            }
+            
+            self.currentRecordingTime = self.currentRecordingTime + 1
+            self.recordProgressView.isHidden = false
+            self.recordProgressView.progress = Float(self.currentRecordingTime) / Float(30)
+            
+            if self.currentRecordingTime > 30 {
+                timer.invalidate()
+            }
         }
     }
     
     func stopRecording() {
         // Calling stop recording returns the video path after it is created
-        recorder.stopRecordingVideo { progress in
-            DispatchQueue.main.async {
-                // Progress. Use it to show feedback for users
-                self.recordProgressView.isHidden = false
-                self.recordProgressView.progress = progress.floatValue
-            }
-        } completion: { url, error in
+        recorderV2.stopRecording(finalFileName: nil) { url, error in
             DispatchQueue.main.async {
                 self.recordButton.isEnabled = true
                 self.recordProgressView.isHidden = true

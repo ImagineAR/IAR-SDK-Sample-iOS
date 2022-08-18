@@ -3,10 +3,13 @@ source 'https://cdn.cocoapods.org/'
 platform :ios, '13.0'
 
 def pod_targetSample
-  # pod 'IAR-Core',   '1.5.0-beta6'
-  # pod 'IAR-Target', '1.5.0-beta6'
-  pod 'ImagineAR-Core',    '1.5.1'
-  pod 'ImagineAR-Target',  '1.5.1'
+  pod 'ImagineAR-Core',     '1.5.1'
+  pod 'ImagineAR-Target',   '1.5.1'
+end
+
+def pod_targetSample_beta
+  pod 'IAR-Core',           '1.6.0-beta1'
+  pod 'IAR-Target',         '1.6.0-beta1'
 end
 
 def pod_targetSample_local
@@ -17,7 +20,7 @@ end
 target 'IAR-TargetSDK-Sample' do
   use_frameworks!
   inhibit_all_warnings!  # ignore warnings emmited from pod sources
-  pod_targetSample
+  pod_targetSample_beta
 
   target 'IAR-TargetSDK-SampleTests' do
     inherit! :search_paths
