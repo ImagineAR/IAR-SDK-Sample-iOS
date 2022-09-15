@@ -1,4 +1,4 @@
-app_identifier("com.iar.IAR-SurfaceSDK-Sample") # The bundle identifier of your app
+app_identifier("com.iar.SurfaceSDK-Sample") # The bundle identifier of your app
 apple_id ENV["APPLE_ID"] || "rogerio@imaginear.com" # Your Apple email address
 
 itc_team_id("118999423") # App Store Connect Team ID
