@@ -106,12 +106,15 @@ jobs:
           message: Printing << parameters.file >>
       - run: echo $FASTLANE_FILE
       - run: cat $FASTLANE_FILE
-  run_fastlane_on_core:
+  run_fastlane_on_project:
     executor: ios
+    parameters:
+      project-directory:
+        type: string
     steps:
       - run_fastlane_cmd:
           lane: unit_test
-          project-directory: IAR-CoreSDK-Sample/
+          project-directory: << parameters.project-directory >>
 
 workflows:
   # debug-parameters-workflow:
@@ -125,7 +128,18 @@ workflows:
       - cat-fastlane:
           parent-directory: IAR-CoreSDK-Sample/
           file: fastlane/Fastfile
-      - run_fastlane_on_core:
+      - run_fastlane_on_project:
+          project-directory: IAR-CoreSDK-Sample/
+          requires:
+            - cat-fastlane
+  build-surface:
+    when: << pipeline.parameters.source-surface-modified >>
+    jobs:
+      - cat-fastlane:
+          parent-directory: IAR-SurfaceSDK-Sample/
+          file: fastlane/Fastfile
+      - run_fastlane_on_project:
+          project-directory: IAR-SurfaceSDK-Sample/
           requires:
             - cat-fastlane
 # # Config
