@@ -7,6 +7,9 @@ parameters:
   source-common-modified:
     type: boolean
     default: false
+  debug-workflow:
+    type: boolean
+    default: true
   active-directory:
     type: string
     default: "/Users/distiller/project/IAR-CoreSDK-Sample"
@@ -32,7 +35,8 @@ jobs:
       - run: cat << parameters.file >>
 
 workflows:
-  my-workflow:
+  debug-parameters-workflow:
+    when: << pipeline.parameters.debug-workflow >>
     jobs:
       - cat-file:
           file: << pipeline.parameters.active-directory >>/fastlane/Fastfile
