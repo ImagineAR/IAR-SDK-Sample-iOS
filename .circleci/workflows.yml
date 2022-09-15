@@ -19,7 +19,7 @@ parameters:
 
   debug-workflow:
     type: boolean
-    default: true
+    default: false
   active-directory:
     type: string
     default: "/Users/distiller/project/"
@@ -117,11 +117,11 @@ jobs:
           project-directory: << parameters.project-directory >>
 
 workflows:
-  # debug-parameters-workflow:
-  #   when: << pipeline.parameters.debug-workflow >>
-  #   jobs:
-  #     - cat-fastlane:
-  #         file: /fastlane/Fastfile
+  debug-parameters-workflow:
+    when: << pipeline.parameters.debug-workflow >>
+    jobs:
+      - cat-fastlane:
+          file: /fastlane/Fastfile
   build-core:
     when: << pipeline.parameters.source-core-modified >>
     jobs:
@@ -140,6 +140,16 @@ workflows:
           file: fastlane/Fastfile
       - run_fastlane_on_project:
           project-directory: IAR-SurfaceSDK-Sample/
+          requires:
+            - cat-fastlane
+  build-target:
+    when: << pipeline.parameters.source-target-modified >>
+    jobs:
+      - cat-fastlane:
+          parent-directory: IAR-TargetSDK-Sample/
+          file: fastlane/Fastfile
+      - run_fastlane_on_project:
+          project-directory: IAR-TargetSDK-Sample/
           requires:
             - cat-fastlane
 # # Config
