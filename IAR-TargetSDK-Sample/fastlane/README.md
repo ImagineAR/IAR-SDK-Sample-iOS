@@ -21,7 +21,7 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane ios unit_test
 ```
 
-Runs unit tests on the Core Sample
+Runs unit tests on the Target Sample
 
 ### ios adhoc
 
