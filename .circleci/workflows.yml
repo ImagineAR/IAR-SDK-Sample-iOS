@@ -86,6 +86,7 @@ commands:
           project-directory: << parameters.project-directory >>
       - install_cocoapods_dependencies:
           project-directory: << parameters.project-directory >>
+      - command: cd << parameters.project-directory >> && bundle exec fastlane << parameters.lane >> << parameters.parameters >>
 
 jobs:
   cat-fastlane:
