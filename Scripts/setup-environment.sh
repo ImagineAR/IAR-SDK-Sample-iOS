@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Starting development environment configuration..."
+
 # installs pre-commit hooks
 cp Scripts/git-hooks/pre-commit-check-for-keys.rb .git/hooks/pre-commit
 # mark as executable
