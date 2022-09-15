@@ -11,9 +11,9 @@ workflows:
           base-revision: main
           mapping: |
             IAR-Samples-Common/.* source-common-modified true
-            IAR-CoreSDK-Sample/.* active-directory /Users/distiller/project/IAR-CoreSDK-Sample
-            IAR-SurfaceSDK-Sample/.* active-directory /Users/distiller/project/IAR-SurfaceSDK-Sample
-            IAR-TargetSDK-Sample/.* active-directory /Users/distiller/project/IAR-TargetSDK-Sample
+            IAR-CoreSDK-Sample/.* source-core-modified true
+            IAR-SurfaceSDK-Sample/.* source-surface-modified true
+            IAR-TargetSDK-Sample/.* source-target-modified true
           config-path: .circleci/workflows.yml
 
 # working_directory: ~/IAR-CoreSDK-Sample/

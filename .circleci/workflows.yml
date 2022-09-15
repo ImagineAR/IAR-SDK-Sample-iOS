@@ -7,12 +7,22 @@ parameters:
   source-common-modified:
     type: boolean
     default: false
+  source-core-modified:
+    type: boolean
+    default: false
+  source-surface-modified:
+    type: boolean
+    default: false
+  source-target-modified:
+    type: boolean
+    default: false
+
   debug-workflow:
     type: boolean
     default: true
   active-directory:
     type: string
-    default: "/Users/distiller/project/IAR-CoreSDK-Sample"
+    default: "/Users/distiller/project/"
 fastlane:
     - &all_lanes [adhoc, unit_test]
 
@@ -38,10 +48,10 @@ jobs:
   cat-fastlane:
     executor: ios
     parameters:
-      file:
+      parent-directory:
         type: string
     environment:
-      FASTLANE_FILE: << pipeline.parameters.active-directory >><< parameters.file >>
+      FASTLANE_FILE: <<pipeline.active-directory>><< parameters.parent-directory >><< parameters.file >>
     steps:
       - checkout
       - print:
@@ -50,12 +60,17 @@ jobs:
       - run: cat $FASTLANE_FILE
 
 workflows:
-  debug-parameters-workflow:
-    when: << pipeline.parameters.debug-workflow >>
+  # debug-parameters-workflow:
+  #   when: << pipeline.parameters.debug-workflow >>
+  #   jobs:
+  #     - cat-fastlane:
+  #         file: /fastlane/Fastfile
+  build-core:
+    when: << source-core-modified >>
     jobs:
       - cat-fastlane:
-          file: /fastlane/Fastfile
-
+          parent-directory: IAR-CoreSDK-Sample/
+          file: fastlane/Fastfile
 # # Config
 
 
