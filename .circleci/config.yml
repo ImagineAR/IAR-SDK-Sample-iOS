@@ -8,7 +8,7 @@ workflows:
   setup:
     jobs:
       - path-filtering/filter:
-          base-revision: develop
+          base-revision: main
           mapping: |
             IAR-Samples-Common/.* source-common-modified true
             IAR-CoreSDK-Sample/.* active-directory /Users/distiller/project/IAR-CoreSDK-Sample
