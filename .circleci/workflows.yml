@@ -43,6 +43,7 @@ jobs:
     environment:
       FASTLANE_FILE: << pipeline.parameters.active-directory >><< parameters.file >>
     steps:
+      - checkout
       - print:
           message: Printing << parameters.file >>
       - run: echo $FASTLANE_FILE
