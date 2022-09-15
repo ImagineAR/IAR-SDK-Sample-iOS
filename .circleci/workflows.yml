@@ -113,9 +113,6 @@ jobs:
           project-directory: << parameters.project-directory >>
   adhoc-beta:
     executor: ios
-    parameters:
-      project-directory:
-        type: string
     steps:
       - run_fastlane_cmd:
           lane: adhoc
