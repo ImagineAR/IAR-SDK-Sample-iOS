@@ -37,9 +37,11 @@ jobs:
 workflows:
   debug-parameters-workflow:
     when: << pipeline.parameters.debug-workflow >>
+    environment:
+      FASTLANE_FILE: << pipeline.parameters.active-directory >>/fastlane/Fastfile
     jobs:
       - cat-file:
-          file: << pipeline.parameters.active-directory >>/fastlane/Fastfile
+          file: $FASTLANE_FILE
 
 # # Config
 
