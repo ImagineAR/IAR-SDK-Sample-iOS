@@ -62,7 +62,7 @@ commands:
       - run:
           name: Install Bundle Dependencies
           command: bundle config set --local path 'vendor/bundle' && cd << parameters.project-directory >> && bundle install
-  run_fastlane:
+  run_fastlane_cmd:
     description: "Get dependencies, run specified Fastlane lane, store artifacts"
     parameters:
       lane:
@@ -103,6 +103,12 @@ jobs:
           message: Printing << parameters.file >>
       - run: echo $FASTLANE_FILE
       - run: cat $FASTLANE_FILE
+  run_fastlane_on_core:
+    executor: ios
+    steps:
+      - run_fastlane_cmd:
+          lane: unit_test
+          project-directory: IAR-CoreSDK-Sample/
 
 workflows:
   # debug-parameters-workflow:
@@ -116,9 +122,7 @@ workflows:
       - cat-fastlane:
           parent-directory: IAR-CoreSDK-Sample/
           file: fastlane/Fastfile
-      - run_fastlane:
-          lane: unit_test
-          project-directory: IAR-CoreSDK-Sample/
+      - run_fastlane_on_core:
           requires:
             - cat-fastlane
 # # Config
