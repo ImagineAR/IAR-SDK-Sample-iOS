@@ -20,7 +20,7 @@ executors:
   ios:
     macos:
       xcode: 13.3
-    working_directory: /Users/distiller/project/IAR-CoreSDK-Sample
+    working_directory: /Users/distiller/project
     shell: /bin/bash --login -eo pipefail
     environment:
       FL_OUTPUT_DIR: output
