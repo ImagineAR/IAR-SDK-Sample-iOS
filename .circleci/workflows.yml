@@ -51,7 +51,7 @@ jobs:
       parent-directory:
         type: string
     environment:
-      FASTLANE_FILE: <<pipeline.active-directory>><< parameters.parent-directory >><< parameters.file >>
+      FASTLANE_FILE: <<pipeline.parameters.active-directory>><< parameters.parent-directory >><< parameters.file >>
     steps:
       - checkout
       - print:
@@ -66,7 +66,7 @@ workflows:
   #     - cat-fastlane:
   #         file: /fastlane/Fastfile
   build-core:
-    when: << pipeline.source-core-modified >>
+    when: << pipeline.parameters.source-core-modified >>
     jobs:
       - cat-fastlane:
           parent-directory: IAR-CoreSDK-Sample/
