@@ -50,6 +50,8 @@ jobs:
     parameters:
       parent-directory:
         type: string
+      file:
+        type: string
     environment:
       FASTLANE_FILE: <<pipeline.parameters.active-directory>><< parameters.parent-directory >><< parameters.file >>
     steps:
