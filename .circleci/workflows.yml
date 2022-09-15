@@ -118,7 +118,14 @@ jobs:
           lane: adhoc
           project-directory: IAR-CoreSDK-Sample/
           distributes: true
-
+      - run_fastlane_cmd:
+          lane: adhoc
+          project-directory: IAR-SurfaceSDK-Sample/
+          distributes: true
+      - run_fastlane_cmd:
+          lane: adhoc
+          project-directory: IAR-TargetSDK-Sample/
+          distributes: true
 workflows:
   build-core:
     when: << pipeline.parameters.source-core-modified >>
