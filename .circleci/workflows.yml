@@ -1,52 +1,41 @@
 version: 2.1
-setup: true
 
-# Environment
 orbs:
-  path-filtering: circleci/path-filtering@0.0.2
+  macos: circleci/macos@2
+
+parameters:
+  source-common-modified:
+    type: boolean
+    default: false
+  active-directory:
+    type: string
+    default: "/Users/distiller/project/IAR-CoreSDK-Sample"
+fastlane:
+    - &all_lanes [adhoc, unit_test]
+
+    
+commands:
+  print:
+    parameters:
+      message:
+        type: string
+    steps:
+      - run: echo << parameters.message >>
+jobs:
+  cat-file:
+    parameters:
+      file:
+        type: string
+    steps:
+      - print:
+          message: Printing << parameters.file >>
+      - run: cat << parameters.file >>
+
 workflows:
-  setup:
+  my-workflow:
     jobs:
-      - path-filtering/filter:
-          base-revision: develop
-          mapping: |
-            IAR-Samples-Common/.* source-common-modified true
-            IAR-CoreSDK-Sample/.* active-directory /Users/distiller/project/IAR-CoreSDK-Sample
-            IAR-SurfaceSDK-Sample/.* active-directory /Users/distiller/project/IAR-SurfaceSDK-Sample
-            IAR-TargetSDK-Sample/.* active-directory /Users/distiller/project/IAR-TargetSDK-Sample
-          config-path: .circleci/workflows.yml
-
-# working_directory: ~/IAR-CoreSDK-Sample/
-
-# # Anchors
-# fastlane:
-#     - &all_lanes [adhoc, unit_test]
-# tags:
-#     - &release_tag /^[0-9]+\.[0-9]+\.[0-9]+\_[0-9]+/ # MAJOR.MINOR.PATCH_BUILD
-
-# workflow_filters:
-#   - &filter_release_tag_only
-#     filters:
-#       branches:
-#         ignore: /.*/
-#       tags:
-#         only: *release_tag
-#   - &filter_beta_branches_only
-#     filters:
-#       branches:
-#         only:
-#           - staging
-#           - develop
-#   - &filter_staging_branch_only
-#     filters:
-#       branches:
-#         only:
-#           - staging
-#   - &filter_master_branch_only
-#     filters:
-#       branches:
-#         only:
-#           - master
+      - cat-file:
+          file: << pipeline.parameters.active-directory >>/fastlane/Fastfile
 
 # # Config
 
