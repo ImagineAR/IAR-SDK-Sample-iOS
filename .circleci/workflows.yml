@@ -44,6 +44,49 @@ commands:
         type: string
     steps:
       - run: echo << parameters.message >>
+  install_cocoapods_dependencies:
+    description: "Install Dependencies"
+    parameters:
+      project-directory:
+        type: string
+    steps:
+      - run:
+          name: Install CocoaPods
+          command: bundle exec pod install --project-directory=./<< parameters.project-directory >>
+  install_bundle_dependencies:
+    description: "Install Bundle Dependencies"
+    parameters:
+      project-directory:
+        type: string
+    steps:
+      - run:
+          name: Install Bundle Dependencies
+          command: bundle config set --local path 'vendor/bundle' && cd << parameters.project-directory >> && bundle install
+  run_fastlane:
+    description: "Get dependencies, run specified Fastlane lane, store artifacts"
+    parameters:
+      lane:
+        type: enum
+        enum: *all_lanes
+      cached:
+        type: boolean
+        default: true
+      distributes:
+        type: boolean
+        default: false
+      project-directory:
+        type: string
+      parameters:
+        type: string
+        default: ""
+    steps:
+      # Git
+      - checkout
+      - install_bundle_dependencies:
+          project-directory: << parameters.project-directory >>
+      - install_cocoapods_dependencies:
+          project-directory: << parameters.project-directory >>
+
 jobs:
   cat-fastlane:
     executor: ios
@@ -73,42 +116,17 @@ workflows:
       - cat-fastlane:
           parent-directory: IAR-CoreSDK-Sample/
           file: fastlane/Fastfile
+      - run_fastlane:
+          lane: unit_test
+          project-directory: IAR-CoreSDK-Sample/
+          requires:
+            - cat-fastlane
 # # Config
 
 
 
 # commands:
-#   install_deps:
-#     description: "Install Dependencies"
-#     steps:
-#       - run:
-#           name: Install CocoaPods
-#           command: bundle exec pod install --project-directory=./IAR-CoreSDK-Sample
 
-#   run_lane:
-#     description: "Get dependencies, run specified Fastlane lane, store artifacts"
-#     parameters:
-#       lane:
-#         type: enum
-#         enum: *all_lanes
-#       cached:
-#         type: boolean
-#         default: true
-#       distributes:
-#         type: boolean
-#         default: false
-#       parameters:
-#         type: string
-#         default: ""
-#     steps:
-#       # Git
-#       - checkout
-
-#       # Install Dependencies
-#       - run:
-#           name: Install Bundle Dependencies
-#           command: bundle config set --local path 'vendor/bundle' && cd IAR-CoreSDK-Sample && bundle install
-#       - install_deps
 
 #       # - when:
 #       #     condition: << parameters.distributes >>
