@@ -113,15 +113,15 @@ jobs:
           project-directory: << parameters.project-directory >>
   adhoc-beta:
     executor: ios
-  parameters:
-    project-directory:
-      type: string
-    steps:
-      - run_fastlane_cmd:
-          lane: adhoc
-          project-directory: IAR-CoreSDK-Sample/
-          distributes: true
-            
+    parameters:
+      project-directory:
+        type: string
+      steps:
+        - run_fastlane_cmd:
+            lane: adhoc
+            project-directory: IAR-CoreSDK-Sample/
+            distributes: true
+
 workflows:
   build-core:
     when: << pipeline.parameters.source-core-modified >>
