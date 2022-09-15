@@ -20,20 +20,20 @@ platform :ios do
     setup_circle_ci
   end
 
-  desc "Runs unit tests on the Surface Sample"
+  desc "Runs unit tests on the Target Sample"
   lane :unit_test do
     run_tests()
   end
 
   lane :adhoc do
     match(type: "adhoc")
-    gym(export_method: "ad-hoc",  configuration: "Release", scheme: "IAR-SurfaceSDK-Sample")
+    gym(export_method: "ad-hoc",  configuration: "Release", scheme: "IAR-TargetSDK-Sample")
     appcenter_upload(
       api_token: ENV["APPCENTER_API_TOKEN"],
       owner_name: ENV["OWNER_NAME"],
       owner_type: "user",
       destinations: "Collaborators",
-      app_name: "IAR-SurfaceSDK-Sample",
+      app_name: "IAR-TargetSDK-Sample",
       notify_testers: true
     )
   end
