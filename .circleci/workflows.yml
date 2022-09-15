@@ -35,24 +35,25 @@ commands:
     steps:
       - run: echo << parameters.message >>
 jobs:
-  cat-file:
+  cat-fastlane:
     executor: ios
     parameters:
       file:
         type: string
+    environment:
+      FASTLANE_FILE: << pipeline.parameters.active-directory >><< parameters.file >>
     steps:
       - print:
           message: Printing << parameters.file >>
-      - run: cat << parameters.file >>
+      - run: echo $FASTLANE_FILE
+      - run: cat $FASTLANE_FILE
 
 workflows:
   debug-parameters-workflow:
     when: << pipeline.parameters.debug-workflow >>
-    environment:
-      FASTLANE_FILE: << pipeline.parameters.active-directory >>/fastlane/Fastfile
     jobs:
-      - cat-file:
-          file: $FASTLANE_FILE
+      - cat-fastlane:
+          file: /fastlane/Fastfile
 
 # # Config
 
