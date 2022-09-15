@@ -66,7 +66,7 @@ workflows:
   #     - cat-fastlane:
   #         file: /fastlane/Fastfile
   build-core:
-    when: << source-core-modified >>
+    when: << pipeline.source-core-modified >>
     jobs:
       - cat-fastlane:
           parent-directory: IAR-CoreSDK-Sample/
