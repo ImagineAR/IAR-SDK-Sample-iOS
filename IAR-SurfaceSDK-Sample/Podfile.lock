@@ -15,14 +15,15 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Alamofire (4.9.1)
-  - IAR-Core (1.6.0-beta1):
+  - ImagineAR-Core (1.6.6):
     - AFNetworking (~> 4.0.1)
     - Moya (~> 13.0.1)
     - R.swift (~> 6.1.0)
-    - SCNRecorder (~> 2.7)
     - SnapKit (~> 5.0.1)
-  - IAR-NFC (1.6.0-beta1)
-  - IAR-Surface (1.6.0-beta1)
+  - ImagineAR-NFC (1.6.6)
+  - ImagineAR-Surface (1.6.6):
+    - ImagineAR-Core (= 1.6.6)
+    - SCNRecorder (~> 2.8.0)
   - Kingfisher (7.0.0)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
@@ -37,27 +38,26 @@ PODS:
   - R.swift.Library (5.3.0)
   - RappleProgressHUD (4.1)
   - Result (4.1.0)
-  - SCNRecorder (2.7.0):
+  - SCNRecorder (2.8.0):
     - MTDMulticastDelegate
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - IAR-Core (= 1.6.0-beta1)
-  - IAR-NFC (= 1.6.0-beta1)
-  - IAR-Surface (= 1.6.0-beta1)
+  - ImagineAR-Core (= 1.6.6)
+  - ImagineAR-NFC (= 1.6.6)
+  - ImagineAR-Surface (= 1.6.6)
   - Kingfisher (~> 7.0.0)
   - Nimble (~> 9.2.1)
   - Quick (~> 4.0.0)
   - RappleProgressHUD (~> 4.1)
 
 SPEC REPOS:
-  https://github.com/ImagineAR/IAR-SDK-Beta-Podspecs.git:
-    - IAR-Core
-    - IAR-NFC
-    - IAR-Surface
   trunk:
     - AFNetworking
     - Alamofire
+    - ImagineAR-Core
+    - ImagineAR-NFC
+    - ImagineAR-Surface
     - Kingfisher
     - Moya
     - MTDMulticastDelegate
@@ -73,9 +73,9 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  IAR-Core: 20295f5b353e8689746180bb1435b9a0c3454249
-  IAR-NFC: 009389db0f8e71c9cbafe935356fab19cb1dfa16
-  IAR-Surface: 8933d000d16d2e3a6900054c1d8e6bb0259462ba
+  ImagineAR-Core: bcd70b6e4ec8e77158356fa8bb992523479fd8ed
+  ImagineAR-NFC: e6e7139c4b078accd9e3a63e53a176423845c4d5
+  ImagineAR-Surface: 5118b8a9a3b6efe0c00cac7c2cae80e86471fbe0
   Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   MTDMulticastDelegate: dcedff914c281710e3faa64b79ff775741f25b4b
@@ -85,9 +85,9 @@ SPEC CHECKSUMS:
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   RappleProgressHUD: f29bc5dc5f9834c2caa9c2ae21ba11f3ff2b5a85
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  SCNRecorder: f1891098c0ea72fe166a1c10fc2e5a4e3dd8c9a5
+  SCNRecorder: b07d8add03ada29070a933ffe3b1d1b59017c40d
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 59b6deaf23067fb1e1acb056790910cd5ed37493
+PODFILE CHECKSUM: c616c15e7c54e7eb4d91bad2f8fe64688e3be94e
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.11.2
