@@ -15,7 +15,7 @@ def pod_core
 end
 
 def pod_core_beta
-  pod 'IAR-Core',           '1.6.0-beta1'
+  pod 'IAR-Core',           '1.6.4-beta1'
 end
 
 def pod_core_local

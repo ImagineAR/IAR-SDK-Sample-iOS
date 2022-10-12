@@ -15,59 +15,52 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Alamofire (4.9.1)
-  - ImagineAR-Core (1.6.3):
+  - IAR-Core (1.6.4-beta1):
     - AFNetworking (~> 4.0.1)
     - Moya (~> 13.0.1)
     - R.swift (~> 6.1.0)
-    - SCNRecorder (~> 2.7)
     - SnapKit (~> 5.0.1)
-  - ImagineAR-Target (1.6.3):
-    - ImagineAR-Core (= 1.6.3)
+  - IAR-Target (1.6.4-beta1):
+    - IAR-Core
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
-  - MTDMulticastDelegate (1.0.1)
   - R.swift (6.1.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
   - Result (4.1.0)
-  - SCNRecorder (2.7.0):
-    - MTDMulticastDelegate
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - ImagineAR-Core (= 1.6.3)
-  - ImagineAR-Target (= 1.6.3)
+  - IAR-Core (= 1.6.4-beta1)
+  - IAR-Target (= 1.6.4-beta1)
 
 SPEC REPOS:
+  https://github.com/ImagineAR/IAR-SDK-Beta-Podspecs.git:
+    - IAR-Core
+    - IAR-Target
   trunk:
     - AFNetworking
     - Alamofire
-    - ImagineAR-Core
-    - ImagineAR-Target
     - Moya
-    - MTDMulticastDelegate
     - R.swift
     - R.swift.Library
     - Result
-    - SCNRecorder
     - SnapKit
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  ImagineAR-Core: a73d1415cb8d38dfbebcf4a200cf91838ef40252
-  ImagineAR-Target: 356f34f1f10ab5b412a3c0757c8e0aa2a9a97f07
+  IAR-Core: 256f37e921ca8f569d31cf0c2d2e1ede0354921d
+  IAR-Target: b43217d82be42f2bdd4c7a2381aebfee6ce81432
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
-  MTDMulticastDelegate: dcedff914c281710e3faa64b79ff775741f25b4b
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  SCNRecorder: f1891098c0ea72fe166a1c10fc2e5a4e3dd8c9a5
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: b649228461a451c5805533c415f5f4d99b69b351
+PODFILE CHECKSUM: e3b44917603f335fc180d4d29d58174883e18294
 
 COCOAPODS: 1.11.2
