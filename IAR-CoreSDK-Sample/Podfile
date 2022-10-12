@@ -11,7 +11,7 @@ def pod_sampleApp
 end
 
 def pod_core
-  pod 'ImagineAR-Core',     '1.6.0'
+  pod 'ImagineAR-Core',     '1.6.6'
 end
 
 def pod_core_beta
@@ -25,7 +25,7 @@ end
 target 'IAR-CoreSDK-Sample' do
   use_frameworks!
   inhibit_all_warnings!  # ignore warnings emmited from pod sources
-  pod_core_beta
+  pod_core
   pod_sampleApp
 
   target 'IAR-CoreSDK-SampleTests' do
