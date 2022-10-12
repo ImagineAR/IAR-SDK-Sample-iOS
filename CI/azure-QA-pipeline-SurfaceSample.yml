@@ -104,7 +104,7 @@ steps:
 
 - task: AppCenterDistribute@3
   inputs:
-    serverEndpoint: 'IAR SDK App Center - iOS'
+    serverEndpoint: 'IAR SDK AppCenter'
     appSlug: '$(QA-App-slug-root)/IAR-SurfaceSDK-Sample'
     appFile: '**/*.ipa'
     releaseNotesOption: 'input'

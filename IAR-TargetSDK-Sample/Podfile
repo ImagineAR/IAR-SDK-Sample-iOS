@@ -25,7 +25,7 @@ target 'IAR-TargetSDK-Sample' do
   use_frameworks!
   inhibit_all_warnings!  # ignore warnings emmited from pod sources
   pod_target
-  
+
   target 'IAR-TargetSDK-SampleTests' do
     inherit! :search_paths
   end
