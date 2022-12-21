@@ -157,11 +157,3 @@ workflows:
           project-directory: IAR-TargetSDK-Sample/
           requires:
             - cat-fastlane
-  hold_qa:
-    jobs:
-      # Approvals
-      - submit_for_qa:
-          type: approval
-      - adhoc-beta:
-          requires:
-            - submit_for_qa
