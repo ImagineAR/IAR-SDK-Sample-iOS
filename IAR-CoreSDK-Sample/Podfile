@@ -11,7 +11,7 @@ def pod_sampleApp
 end
 
 def pod_core
-  pod 'ImagineAR-Core',     '1.6.6'
+  pod 'ImagineAR-Core',     '1.6.9'
 end
 
 def pod_core_beta
