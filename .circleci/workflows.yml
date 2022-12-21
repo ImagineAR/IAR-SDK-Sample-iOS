@@ -25,7 +25,7 @@ fastlane:
 executors:
   ios:
     macos:
-      xcode: 14.0.1
+      xcode: 14.2
     working_directory: /Users/distiller/project
     shell: /bin/bash --login -eo pipefail
     environment:
