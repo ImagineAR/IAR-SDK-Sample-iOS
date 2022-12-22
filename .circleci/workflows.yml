@@ -22,6 +22,12 @@ parameters:
 fastlane:
     - &all_lanes [adhoc, unit_test]
 
+workflow_filters:
+  - &filter_beta_branches_only
+    filters:
+      branches:
+        only:
+          - /release\/.*/
 executors:
   ios:
     macos:
@@ -127,6 +133,10 @@ jobs:
           project-directory: IAR-TargetSDK-Sample/
           distributes: true
 workflows:
+  auto_beta:
+    jobs:
+      - adhoc-beta:
+          <<: *filter_beta_branches_only
   build-core:
     when: << pipeline.parameters.source-core-modified >>
     jobs:
