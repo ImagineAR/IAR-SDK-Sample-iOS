@@ -16,9 +16,9 @@ def pod_common
 end
 
 def pod_surfaceSample
-  pod 'ImagineAR-Core',       '1.6.6'
-  pod 'ImagineAR-Surface',    '1.6.6'
-  pod 'ImagineAR-NFC',        '1.6.6'
+  pod 'ImagineAR-Core',       '1.6.9'
+  pod 'ImagineAR-Surface',    '1.6.9'
+  pod 'ImagineAR-NFC',        '1.6.9'
 end
 
 def pod_surfaceSample_beta
