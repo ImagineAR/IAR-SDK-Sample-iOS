@@ -15,7 +15,7 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Alamofire (4.9.1)
-  - ImagineAR-Core (1.6.6):
+  - ImagineAR-Core (1.6.9):
     - AFNetworking (~> 4.0.1)
     - Moya (~> 13.0.1)
     - R.swift (~> 6.1.0)
@@ -33,7 +33,7 @@ PODS:
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - ImagineAR-Core (= 1.6.6)
+  - ImagineAR-Core (= 1.6.9)
   - Kingfisher (= 7.0.0)
 
 SPEC REPOS:
@@ -51,7 +51,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  ImagineAR-Core: bcd70b6e4ec8e77158356fa8bb992523479fd8ed
+  ImagineAR-Core: 073990a72334fca9b97dde0fd16d25998e0ab46e
   Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
@@ -59,6 +59,6 @@ SPEC CHECKSUMS:
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: f0ed203f7f80c531b37f8f797be9df5e3e25dc25
+PODFILE CHECKSUM: 0c30269b3ac6d1cdaf423eb5f1b471e3d52f5747
 
 COCOAPODS: 1.11.2
