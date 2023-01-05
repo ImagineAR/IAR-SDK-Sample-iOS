@@ -156,19 +156,11 @@ class SurfaceViewController: UIViewController {
     }
     
     @objc func pauseAR() {
-        if surfaceView == nil{
-            return
-        }
-        
-        surfaceView.stop()
+        surfaceView?.stop()
     }
     
     @objc func resumeAR() {
-        if surfaceView == nil {
-            return
-        }
-        
-        self.surfaceView.start()
+        surfaceView?.start()
     }
     
     
