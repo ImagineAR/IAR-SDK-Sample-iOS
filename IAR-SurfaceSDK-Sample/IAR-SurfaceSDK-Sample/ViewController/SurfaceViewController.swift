@@ -30,7 +30,7 @@ class SurfaceViewController: UIViewController {
     var marker: Marker?
     private var currentRecordingTime = 0
     private var recorderV1 = IARRecorder()
-    private var recorderV2 = SurfaceRecorder()
+    private var recorder: SurfaceRecorder? = nil
     
     // MARK: - Surface instruction message
     
@@ -126,8 +126,18 @@ class SurfaceViewController: UIViewController {
         guard let marker = self.marker else { return }
         
         // Load and assing a marker
+        self.surfaceView.forcedOrientation = .gravity
         self.surfaceView.load()
-        self.surfaceView.setMarker(marker)
+        self.surfaceView.marker = marker
+        
+        do {
+            var recordingOptions = SurfaceRecorder.Options.default
+            recordingOptions.outputUrl = URL(fileURLWithPath: NSTemporaryDirectory() + "IAR-Output.mp4")
+            try recorder = SurfaceRecorder(withSurfaceView: surfaceView, options: recordingOptions)
+            recorder?.delegate = self
+        } catch let error {
+            FileLogger.shared.log(content: "Failed to create recorder: \(error.localizedDescription)")
+        }
         
         // Setup its delegate
         surfaceView.delegate = self
@@ -194,7 +204,9 @@ class SurfaceViewController: UIViewController {
     func startRecording() {
         // Hides the recording button. It can only record one video at a time
         recordButton.isEnabled = false
-        recorderV2.startRecording(surfaceView: self.surfaceView)
+
+        _ = recorder?.startRecording()
+        
         currentRecordingTime = 0
         
         // For this example, it will stop recording after 30 seconds
@@ -219,22 +231,26 @@ class SurfaceViewController: UIViewController {
     
     func stopRecording() {
         // Calling stop recording returns the video path after it is created
-        recorderV2.stopRecording(finalFileName: nil) { url, error in
-            DispatchQueue.main.async {
+        recorder?.stopRecording().onSuccess { [weak self] url in
+            print("Recording Finished", url)
+            DispatchQueue.main.async { [weak self] in
+                guard let self else {
+                    return
+                }
+                
                 self.recordButton.isEnabled = true
                 self.recordProgressView.isHidden = true
                 
-                if let error = error {
-                    // Handle the error
-                    print(error.localizedDescription)
-                }
-                if let url = url {
-                    // With the video URL, it's possible to present a share modal so the user can save or share wherever they want
-                    // NOTE: To shar, the user may need to give permission to contacts.
-                    // NOTE: To save on photos, the user may need to give permission to the photos app.
-                    let ActivityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-                    self.present(ActivityController, animated: true, completion: nil)
-                }
+//                if let error = error {
+//                    // Handle the error
+//                    print(error.localizedDescription)
+//                }
+                
+                // With the video URL, it's possible to present a share modal so the user can save or share wherever they want
+                // NOTE: To shar, the user may need to give permission to contacts.
+                // NOTE: To save on photos, the user may need to give permission to the photos app.
+                let ActivityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+                self.present(ActivityController, animated: true, completion: nil)
             }
         }
     }
@@ -253,6 +269,12 @@ class SurfaceViewController: UIViewController {
 // MARK: - Extension IARSurfaceViewDelegate
 
 extension SurfaceViewController: IARSurfaceViewDelegate {
+    
+    // Define if the AR Asset will always face the camera - default FALSE
+    func surfaceViewOnlyShowAssetOnTap(_ surfaceView: IAR_Surface_SDK.IARSurfaceView) -> Bool {
+        print("IAR - surfaceViewOnlyShowAsset")
+        return false
+    }
     
     // MARK: - Required delegate methods
     
@@ -290,15 +312,15 @@ extension SurfaceViewController: IARSurfaceViewDelegate {
         print("IAR - surfaceViewCanScaleAsset")
         return false
     }
-
-    // Define if the AR Asset will always face the camera - default FALSE
-    func surfaceViewOnlyShowAsset(onTap surfaceView: IARSurfaceView) -> Bool {
-        print("IAR - surfaceViewOnlyShowAsset")
-        return false
-    }
     
     // Called to show the current download progress of any asset
     func surfaceView(_ surfaceView: IARSurfaceView, downloadProgress progress: CGFloat) {
         print("IAR - downloadProgress \(progress)")
+    }
+}
+
+extension SurfaceViewController: SurfaceRecorderDelegate {
+    func onError(error: Error) {
+        print("IAR - Recorder error: \(error.localizedDescription)")
     }
 }

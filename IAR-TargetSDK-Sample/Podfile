@@ -8,8 +8,8 @@ def pod_targetSample
 end
 
 def pod_targetSample_beta
-  pod 'IAR-Core',           '1.6.4-beta1'
-  pod 'IAR-Target',         '1.6.4-beta1'
+  pod 'IAR-Core',           '1.6.10-beta1'
+  pod 'IAR-Target',         '1.6.10-beta1'
 end
 
 def pod_targetSample_local
@@ -18,7 +18,8 @@ def pod_targetSample_local
 end
 
 def pod_target
-  pod_targetSample
+  #pod_targetSample
+  pod_targetSample_beta
 end
 
 target 'IAR-TargetSDK-Sample' do
