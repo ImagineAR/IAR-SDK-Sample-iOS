@@ -117,6 +117,17 @@ class SurfaceViewController: UIViewController {
         }
     }
     
+    func getScreenResolution() -> CGSize {
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+
+        let scale = UIScreen.main.scale
+        let pixelWidth = screenWidth * scale
+        let pixelHeight = screenHeight * scale
+        
+        return CGSize(width: pixelWidth, height: pixelHeight)
+    }
     
     // MARK: - Methods - IAR Surface Status
     
@@ -133,6 +144,7 @@ class SurfaceViewController: UIViewController {
         do {
             var recordingOptions = SurfaceRecorder.Options.default
             recordingOptions.outputUrl = URL(fileURLWithPath: NSTemporaryDirectory() + "IAR-Output.mp4")
+            recordingOptions.videoSize = getScreenResolution()
             try recorder = SurfaceRecorder(withSurfaceView: surfaceView, options: recordingOptions)
             recorder?.delegate = self
         } catch let error {
