@@ -8,6 +8,9 @@ def pod_sampleApp
   # Kingfisher is an image-centric library: used in the sample app for
   # filesystem caching, download management and jpg progressive loading
   pod 'Kingfisher',         '7.0.0'
+
+  #pod_core
+  pod_core_beta
 end
 
 def pod_core
@@ -15,7 +18,7 @@ def pod_core
 end
 
 def pod_core_beta
-  pod 'IAR-Core',           '1.6.4-beta1'
+  pod 'IAR-Core',           '1.6.10-beta1'
 end
 
 def pod_core_local
@@ -25,7 +28,6 @@ end
 target 'IAR-CoreSDK-Sample' do
   use_frameworks!
   inhibit_all_warnings!  # ignore warnings emmited from pod sources
-  pod_core
   pod_sampleApp
 
   target 'IAR-CoreSDK-SampleTests' do
