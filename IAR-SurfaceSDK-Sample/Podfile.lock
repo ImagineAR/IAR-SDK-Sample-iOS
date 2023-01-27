@@ -15,22 +15,22 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Alamofire (4.9.1)
-  - ImagineAR-Core (1.6.9):
+  - BrightFutures (8.2.0)
+  - IAR-Core (1.6.10-beta5):
     - AFNetworking (~> 4.0.1)
     - Moya (~> 13.0.1)
     - R.swift (~> 6.1.0)
     - SnapKit (~> 5.0.1)
-  - ImagineAR-NFC (1.6.9)
-  - ImagineAR-Surface (1.6.9):
-    - ImagineAR-Core (= 1.6.9)
-    - SCNRecorder (~> 2.8.1)
+  - IAR-NFC (1.6.10-beta5)
+  - IAR-Surface (1.6.10-beta5):
+    - BrightFutures (~> 8.2.0)
+    - IAR-Core
   - Kingfisher (7.0.0)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
-  - MTDMulticastDelegate (1.0.1)
   - Nimble (9.2.1)
   - Quick (4.0.0)
   - R.swift (6.1.0):
@@ -38,56 +38,53 @@ PODS:
   - R.swift.Library (5.3.0)
   - RappleProgressHUD (4.1)
   - Result (4.1.0)
-  - SCNRecorder (2.8.1):
-    - MTDMulticastDelegate
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - ImagineAR-Core (= 1.6.9)
-  - ImagineAR-NFC (= 1.6.9)
-  - ImagineAR-Surface (= 1.6.9)
+  - IAR-Core (= 1.6.10-beta5)
+  - IAR-NFC (= 1.6.10-beta5)
+  - IAR-Surface (= 1.6.10-beta5)
   - Kingfisher (~> 7.0.0)
   - Nimble (~> 9.2.1)
   - Quick (~> 4.0.0)
   - RappleProgressHUD (~> 4.1)
 
 SPEC REPOS:
+  https://github.com/ImagineAR/IAR-SDK-Beta-Podspecs.git:
+    - IAR-Core
+    - IAR-NFC
+    - IAR-Surface
   trunk:
     - AFNetworking
     - Alamofire
-    - ImagineAR-Core
-    - ImagineAR-NFC
-    - ImagineAR-Surface
+    - BrightFutures
     - Kingfisher
     - Moya
-    - MTDMulticastDelegate
     - Nimble
     - Quick
     - R.swift
     - R.swift.Library
     - RappleProgressHUD
     - Result
-    - SCNRecorder
     - SnapKit
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  ImagineAR-Core: 073990a72334fca9b97dde0fd16d25998e0ab46e
-  ImagineAR-NFC: 3102004062a2eb1c19e22b4f1714a71ae1ee26b9
-  ImagineAR-Surface: 85c86d0f6bc994abda97fb5fc80f1f014411ec5d
+  BrightFutures: 67e0e8cd974ab9f6c04650cc64153f7adf1ec489
+  IAR-Core: cac2eaffb91ca7ccce1d19264e8c00981a397130
+  IAR-NFC: 37a4c48820357c09cec46d06d2ffd54c88af1a29
+  IAR-Surface: 95b5465428460aaa8359a034123e3970f2d139d2
   Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
-  MTDMulticastDelegate: dcedff914c281710e3faa64b79ff775741f25b4b
   Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
   Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   RappleProgressHUD: f29bc5dc5f9834c2caa9c2ae21ba11f3ff2b5a85
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  SCNRecorder: dd694ba1c5cd541a58f0794a45d70262109c7024
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: af967cf1256fc53ca2d72a0f93a20699a01cd17e
+PODFILE CHECKSUM: 7154c54fd5bd1c13bfc272ef385b579ed728cde7
 
 COCOAPODS: 1.11.2

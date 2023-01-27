@@ -30,7 +30,7 @@ class SurfaceViewController: UIViewController {
     var marker: Marker?
     private var currentRecordingTime = 0
     private var recorderV1 = IARRecorder()
-    private var recorderV2 = SurfaceRecorder()
+    private lazy var recorderV2 = try? SurfaceRecorder(withSurfaceView: surfaceView)
     
     // MARK: - Surface instruction message
     
@@ -52,15 +52,13 @@ class SurfaceViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        // Stop IARSurface when the view will disappear
-        
         pauseAR()
+        dispose()
+        print("View disposed")
         super.viewWillDisappear(animated)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // Start (or resume) IARSurface when the view will appear
-        
         resumeAR()
         super.viewWillAppear(animated)
     }
@@ -127,10 +125,12 @@ class SurfaceViewController: UIViewController {
         
         // Load and assing a marker
         self.surfaceView.load()
-        self.surfaceView.setMarker(marker)
+        self.surfaceView.marker = marker
         
         // Setup its delegate
         surfaceView.delegate = self
+        
+        recorderV2?.delegate = self
     }
     
     @objc func pauseAR() {
@@ -149,6 +149,12 @@ class SurfaceViewController: UIViewController {
         self.surfaceView.start()
     }
     
+    func dispose() {
+        recorderV2?.stopRecording()
+        recorderV2?.dispose()
+        recorderV2 = nil
+        surfaceView.dispose()
+    }
     
     // MARK: - Methods - Move
     
@@ -194,7 +200,7 @@ class SurfaceViewController: UIViewController {
     func startRecording() {
         // Hides the recording button. It can only record one video at a time
         recordButton.isEnabled = false
-        recorderV2.startRecording(surfaceView: self.surfaceView)
+        recorderV2?.startRecording()
         currentRecordingTime = 0
         
         // For this example, it will stop recording after 30 seconds
@@ -217,26 +223,24 @@ class SurfaceViewController: UIViewController {
         }
     }
     
+    private func resetRecordingButtons() {
+        self.recordButton.isEnabled = true
+        self.recordProgressView.isHidden = true
+    }
+    
     func stopRecording() {
         // Calling stop recording returns the video path after it is created
-        recorderV2.stopRecording(finalFileName: nil) { url, error in
+        recorderV2?.stopRecording().onSuccess(callback: { url in
             DispatchQueue.main.async {
-                self.recordButton.isEnabled = true
-                self.recordProgressView.isHidden = true
+                self.resetRecordingButtons()
                 
-                if let error = error {
-                    // Handle the error
-                    print(error.localizedDescription)
-                }
-                if let url = url {
-                    // With the video URL, it's possible to present a share modal so the user can save or share wherever they want
-                    // NOTE: To shar, the user may need to give permission to contacts.
-                    // NOTE: To save on photos, the user may need to give permission to the photos app.
-                    let ActivityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-                    self.present(ActivityController, animated: true, completion: nil)
-                }
+                // With the video URL, it's possible to present a share modal so the user can save or share wherever they want
+                // NOTE: To shar, the user may need to give permission to contacts.
+                // NOTE: To save on photos, the user may need to give permission to the photos app.
+                let ActivityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+                self.present(ActivityController, animated: true, completion: nil)
             }
-        }
+        })
     }
     
     func enableRecordButtons() {
@@ -261,7 +265,12 @@ extension SurfaceViewController: IARSurfaceViewDelegate {
         print("IAR - Error: \(error.localizedDescription)")
     }
     
-    
+    // Define is the asset will only be shown on tap
+    func surfaceViewOnlyShowAssetOnTap(_ surfaceView: IAR_Surface_SDK.IARSurfaceView) -> Bool {
+        print("IAR - surfaceViewOnlyShowAsset")
+        return false
+    }
+
     // MARK: - Optional delegate methods
     
     // Called when a surface is detected
@@ -291,14 +300,20 @@ extension SurfaceViewController: IARSurfaceViewDelegate {
         return false
     }
 
-    // Define if the AR Asset will always face the camera - default FALSE
-    func surfaceViewOnlyShowAsset(onTap surfaceView: IARSurfaceView) -> Bool {
-        print("IAR - surfaceViewOnlyShowAsset")
-        return false
-    }
-    
     // Called to show the current download progress of any asset
     func surfaceView(_ surfaceView: IARSurfaceView, downloadProgress progress: CGFloat) {
         print("IAR - downloadProgress \(progress)")
     }
+}
+
+// MARK: - Extension SurfaceRecorderDelegate
+
+extension SurfaceViewController: SurfaceRecorderDelegate {
+    func onError(error: Error) {
+        print("IAR - error during recording: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            self.resetRecordingButtons()
+        }
+    }
+    
 }
