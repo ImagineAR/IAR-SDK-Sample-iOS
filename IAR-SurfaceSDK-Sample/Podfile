@@ -12,7 +12,7 @@ def pod_common
   # Simple progress dialog ontop, used for quickly showing a 'busy state'
   # while downloading assets and other network intensive operations
   pod 'RappleProgressHUD',    '~> 4.1'
-  pod_surfaceSample
+  pod_surfaceSample_beta
 end
 
 def pod_surfaceSample
@@ -22,9 +22,9 @@ def pod_surfaceSample
 end
 
 def pod_surfaceSample_beta
-  pod 'IAR-Core',             '1.6.4-beta1'
-  pod 'IAR-Surface',          '1.6.4-beta1'
-  pod 'IAR-NFC',              '1.6.4-beta1'
+  pod 'IAR-Core',             '1.6.10-beta5'
+  pod 'IAR-Surface',          '1.6.10-beta5'
+  pod 'IAR-NFC',              '1.6.10-beta5'
 end
 
 def pod_surfaceSample_local
