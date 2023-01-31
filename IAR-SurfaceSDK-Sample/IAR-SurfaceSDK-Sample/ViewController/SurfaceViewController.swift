@@ -32,6 +32,14 @@ class SurfaceViewController: UIViewController {
     private var recorderV1 = IARRecorder()
     private lazy var recorderV2 = try? SurfaceRecorder(withSurfaceView: surfaceView)
     
+    // Makes sure disposal only happens when the view is being popped from the navigation stack,
+    // and not when another view is pushed into it
+    var isAboutToClose: Bool {
+        return self.isBeingDismissed ||
+               self.isMovingFromParent ||
+               self.navigationController?.isBeingDismissed ?? false
+    }
+    
     // MARK: - Surface instruction message
     
     var pointAtSurfaceMessage = "Point your device at a flat surface"
@@ -53,8 +61,12 @@ class SurfaceViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         pauseAR()
-        dispose()
-        print("View disposed")
+        
+        if isAboutToClose {
+            dispose()
+            print("View disposed")
+        }
+        
         super.viewWillDisappear(animated)
     }
     
