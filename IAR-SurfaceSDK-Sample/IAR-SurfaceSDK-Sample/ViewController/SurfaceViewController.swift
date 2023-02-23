@@ -29,8 +29,17 @@ class SurfaceViewController: UIViewController {
     
     var marker: Marker?
     private var currentRecordingTime = 0
-    private var recorderV1 = IARRecorder()
-    private lazy var recorderV2 = try? SurfaceRecorder(withSurfaceView: surfaceView)
+    private var screenshotTaker = IARRecorder()
+    private var recorderOptions: SurfaceRecorder.Options {
+        var baseOptions = SurfaceRecorder.Options.default
+        let scale = UIScreen.main.scale
+        let width = surfaceView.bounds.size.width * scale
+        let height = surfaceView.bounds.size.height * scale
+
+        baseOptions.videoSize = CGSize(width: width, height: height)
+        return baseOptions
+    }
+    private lazy var recorderV2 = try? SurfaceRecorder(withSurfaceView: surfaceView, options: recorderOptions)
     
     // Makes sure disposal only happens when the view is being popped from the navigation stack,
     // and not when another view is pushed into it
@@ -196,7 +205,7 @@ class SurfaceViewController: UIViewController {
     
     @IBAction func onScreenshotButton(_ sender: Any) {
         // Returns an UIImage for the Surface view
-        let screenshotImage: UIImage = recorderV1.takeScreenshot(self.surfaceView)
+        let screenshotImage: UIImage = screenshotTaker.takeScreenshot(self.surfaceView)
         
         // With that image, it's possible to present a share modal so the user can save or share wherever they want.
         // NOTE: To share, the user may need to give permission to contacts.
@@ -212,6 +221,7 @@ class SurfaceViewController: UIViewController {
     func startRecording() {
         // Hides the recording button. It can only record one video at a time
         recordButton.isEnabled = false
+        
         recorderV2?.startRecording()
         currentRecordingTime = 0
         
