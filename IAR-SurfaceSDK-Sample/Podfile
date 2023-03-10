@@ -12,25 +12,20 @@ def pod_common
   # Simple progress dialog ontop, used for quickly showing a 'busy state'
   # while downloading assets and other network intensive operations
   pod 'RappleProgressHUD',    '~> 4.1'
-
-  # REMOVE AND PUT INTO THE SDK FIRST
-  pod 'BrightFutures',     '~> 8.2.0'    # https://github.com/Thomvis/BrightFutures
-
-  #pod_surfaceSample
-  #pod_surfaceSample_local
-  pod_surfaceSample_beta
+  #pod_surfaceSample_beta
+  pod_surfaceSample
 end
 
 def pod_surfaceSample
-  pod 'ImagineAR-Core',       '1.6.9'
-  pod 'ImagineAR-Surface',    '1.6.9'
-  pod 'ImagineAR-NFC',        '1.6.9'
+  pod 'ImagineAR-Core',       '1.6.12'
+  pod 'ImagineAR-Surface',    '1.6.12'
+  pod 'ImagineAR-NFC',        '1.6.12'
 end
 
 def pod_surfaceSample_beta
-  pod 'IAR-Core',             '1.6.10-beta1'
-  pod 'IAR-Surface',          '1.6.10-beta1'
-  pod 'IAR-NFC',              '1.6.10-beta1'
+  pod 'IAR-Core',             '1.6.10-beta5'
+  pod 'IAR-Surface',          '1.6.10-beta5'
+  pod 'IAR-NFC',              '1.6.10-beta5'
 end
 
 def pod_surfaceSample_local

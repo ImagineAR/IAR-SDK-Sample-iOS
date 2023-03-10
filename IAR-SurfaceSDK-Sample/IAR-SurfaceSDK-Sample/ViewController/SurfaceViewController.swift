@@ -29,8 +29,25 @@ class SurfaceViewController: UIViewController {
     
     var marker: Marker?
     private var currentRecordingTime = 0
-    private var recorderV1 = IARRecorder()
-    private var recorder: SurfaceRecorder? = nil
+    private var screenshotTaker = IARRecorder()
+    private var recorderOptions: SurfaceRecorder.Options {
+        var baseOptions = SurfaceRecorder.Options.default
+        let scale = UIScreen.main.scale
+        let width = surfaceView.bounds.size.width * scale
+        let height = surfaceView.bounds.size.height * scale
+
+        baseOptions.videoSize = CGSize(width: width, height: height)
+        return baseOptions
+    }
+    private lazy var recorderV2 = try? SurfaceRecorder(withSurfaceView: surfaceView, options: recorderOptions)
+    
+    // Makes sure disposal only happens when the view is being popped from the navigation stack,
+    // and not when another view is pushed into it
+    var isAboutToClose: Bool {
+        return self.isBeingDismissed ||
+               self.isMovingFromParent ||
+               self.navigationController?.isBeingDismissed ?? false
+    }
     
     // MARK: - Surface instruction message
     
@@ -52,15 +69,17 @@ class SurfaceViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        // Stop IARSurface when the view will disappear
-        
         pauseAR()
+        
+        if isAboutToClose {
+            dispose()
+            print("View disposed")
+        }
+        
         super.viewWillDisappear(animated)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // Start (or resume) IARSurface when the view will appear
-        
         resumeAR()
         super.viewWillAppear(animated)
     }
@@ -117,17 +136,6 @@ class SurfaceViewController: UIViewController {
         }
     }
     
-    func getScreenResolution() -> CGSize {
-        let screenSize = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-
-        let scale = UIScreen.main.scale
-        let pixelWidth = screenWidth * scale
-        let pixelHeight = screenHeight * scale
-        
-        return CGSize(width: pixelWidth, height: pixelHeight)
-    }
     
     // MARK: - Methods - IAR Surface Status
     
@@ -137,32 +145,37 @@ class SurfaceViewController: UIViewController {
         guard let marker = self.marker else { return }
         
         // Load and assing a marker
-        self.surfaceView.forcedOrientation = .gravity
         self.surfaceView.load()
         self.surfaceView.marker = marker
         
-        do {
-            var recordingOptions = SurfaceRecorder.Options.default
-            recordingOptions.outputUrl = URL(fileURLWithPath: NSTemporaryDirectory() + "IAR-Output.mp4")
-            recordingOptions.videoSize = getScreenResolution()
-            try recorder = SurfaceRecorder(withSurfaceView: surfaceView, options: recordingOptions)
-            recorder?.delegate = self
-        } catch let error {
-            FileLogger.shared.log(content: "Failed to create recorder: \(error.localizedDescription)")
-        }
-        
         // Setup its delegate
         surfaceView.delegate = self
+        
+        recorderV2?.delegate = self
     }
     
     @objc func pauseAR() {
-        surfaceView?.stop()
+        if surfaceView == nil{
+            return
+        }
+        
+        surfaceView.stop()
     }
     
     @objc func resumeAR() {
-        surfaceView?.start()
+        if surfaceView == nil {
+            return
+        }
+        
+        self.surfaceView.start()
     }
     
+    func dispose() {
+        recorderV2?.stopRecording()
+        recorderV2?.dispose()
+        recorderV2 = nil
+        surfaceView.dispose()
+    }
     
     // MARK: - Methods - Move
     
@@ -192,7 +205,7 @@ class SurfaceViewController: UIViewController {
     
     @IBAction func onScreenshotButton(_ sender: Any) {
         // Returns an UIImage for the Surface view
-        let screenshotImage: UIImage = recorderV1.takeScreenshot(self.surfaceView)
+        let screenshotImage: UIImage = screenshotTaker.takeScreenshot(self.surfaceView)
         
         // With that image, it's possible to present a share modal so the user can save or share wherever they want.
         // NOTE: To share, the user may need to give permission to contacts.
@@ -208,9 +221,8 @@ class SurfaceViewController: UIViewController {
     func startRecording() {
         // Hides the recording button. It can only record one video at a time
         recordButton.isEnabled = false
-
-        _ = recorder?.startRecording()
         
+        recorderV2?.startRecording()
         currentRecordingTime = 0
         
         // For this example, it will stop recording after 30 seconds
@@ -233,22 +245,16 @@ class SurfaceViewController: UIViewController {
         }
     }
     
+    private func resetRecordingButtons() {
+        self.recordButton.isEnabled = true
+        self.recordProgressView.isHidden = true
+    }
+    
     func stopRecording() {
         // Calling stop recording returns the video path after it is created
-        recorder?.stopRecording().onSuccess { [weak self] url in
-            print("Recording Finished", url)
-            DispatchQueue.main.async { [weak self] in
-                guard let self else {
-                    return
-                }
-                
-                self.recordButton.isEnabled = true
-                self.recordProgressView.isHidden = true
-                
-//                if let error = error {
-//                    // Handle the error
-//                    print(error.localizedDescription)
-//                }
+        recorderV2?.stopRecording().onSuccess(callback: { url in
+            DispatchQueue.main.async {
+                self.resetRecordingButtons()
                 
                 // With the video URL, it's possible to present a share modal so the user can save or share wherever they want
                 // NOTE: To shar, the user may need to give permission to contacts.
@@ -256,7 +262,7 @@ class SurfaceViewController: UIViewController {
                 let ActivityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
                 self.present(ActivityController, animated: true, completion: nil)
             }
-        }
+        })
     }
     
     func enableRecordButtons() {
@@ -274,12 +280,6 @@ class SurfaceViewController: UIViewController {
 
 extension SurfaceViewController: IARSurfaceViewDelegate {
     
-    // Define if the AR Asset will always face the camera - default FALSE
-    func surfaceViewOnlyShowAssetOnTap(_ surfaceView: IAR_Surface_SDK.IARSurfaceView) -> Bool {
-        print("IAR - surfaceViewOnlyShowAsset")
-        return false
-    }
-    
     // MARK: - Required delegate methods
     
     // Called when an error occurs
@@ -287,7 +287,12 @@ extension SurfaceViewController: IARSurfaceViewDelegate {
         print("IAR - Error: \(error.localizedDescription)")
     }
     
-    
+    // Define is the asset will only be shown on tap
+    func surfaceViewOnlyShowAssetOnTap(_ surfaceView: IAR_Surface_SDK.IARSurfaceView) -> Bool {
+        print("IAR - surfaceViewOnlyShowAsset")
+        return false
+    }
+
     // MARK: - Optional delegate methods
     
     // Called when a surface is detected
@@ -316,15 +321,21 @@ extension SurfaceViewController: IARSurfaceViewDelegate {
         print("IAR - surfaceViewCanScaleAsset")
         return false
     }
-    
+
     // Called to show the current download progress of any asset
     func surfaceView(_ surfaceView: IARSurfaceView, downloadProgress progress: CGFloat) {
         print("IAR - downloadProgress \(progress)")
     }
 }
 
+// MARK: - Extension SurfaceRecorderDelegate
+
 extension SurfaceViewController: SurfaceRecorderDelegate {
     func onError(error: Error) {
-        print("IAR - Recorder error: \(error.localizedDescription)")
+        print("IAR - error during recording: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            self.resetRecordingButtons()
+        }
     }
+    
 }

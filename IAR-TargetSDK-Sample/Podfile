@@ -3,13 +3,13 @@ source 'https://cdn.cocoapods.org/'
 platform :ios, '13.0'
 
 def pod_targetSample
-  pod 'ImagineAR-Core',     '1.6.9'
-  pod 'ImagineAR-Target',   '1.6.9'
+  pod 'ImagineAR-Core',     '1.6.12'
+  pod 'ImagineAR-Target',   '1.6.12'
 end
 
 def pod_targetSample_beta
-  pod 'IAR-Core',           '1.6.10-beta1'
-  pod 'IAR-Target',         '1.6.10-beta1'
+  pod 'IAR-Core',           '1.6.10-beta5'
+  pod 'IAR-Target',         '1.6.10-beta5'
 end
 
 def pod_targetSample_local
@@ -18,8 +18,8 @@ def pod_targetSample_local
 end
 
 def pod_target
-  #pod_targetSample
-  pod_targetSample_beta
+  #pod_targetSample_beta
+  pod_targetSample
 end
 
 target 'IAR-TargetSDK-Sample' do

@@ -16,15 +16,15 @@ PODS:
     - AFNetworking/NSURLSession
   - Alamofire (4.9.1)
   - BrightFutures (8.2.0)
-  - IAR-Core (1.6.10-beta1):
+  - ImagineAR-Core (1.6.12):
     - AFNetworking (~> 4.0.1)
     - Moya (~> 13.0.1)
     - R.swift (~> 6.1.0)
     - SnapKit (~> 5.0.1)
-  - IAR-NFC (1.6.10-beta1)
-  - IAR-Surface (1.6.10-beta1):
+  - ImagineAR-NFC (1.6.12)
+  - ImagineAR-Surface (1.6.12):
     - BrightFutures (~> 8.2.0)
-    - IAR-Core
+    - ImagineAR-Core (= 1.6.12)
   - Kingfisher (7.0.0)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
@@ -41,24 +41,22 @@ PODS:
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - BrightFutures (~> 8.2.0)
-  - IAR-Core (= 1.6.10-beta1)
-  - IAR-NFC (= 1.6.10-beta1)
-  - IAR-Surface (= 1.6.10-beta1)
+  - ImagineAR-Core (= 1.6.12)
+  - ImagineAR-NFC (= 1.6.12)
+  - ImagineAR-Surface (= 1.6.12)
   - Kingfisher (~> 7.0.0)
   - Nimble (~> 9.2.1)
   - Quick (~> 4.0.0)
   - RappleProgressHUD (~> 4.1)
 
 SPEC REPOS:
-  https://github.com/ImagineAR/IAR-SDK-Beta-Podspecs.git:
-    - IAR-Core
-    - IAR-NFC
-    - IAR-Surface
   trunk:
     - AFNetworking
     - Alamofire
     - BrightFutures
+    - ImagineAR-Core
+    - ImagineAR-NFC
+    - ImagineAR-Surface
     - Kingfisher
     - Moya
     - Nimble
@@ -70,12 +68,12 @@ SPEC REPOS:
     - SnapKit
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BrightFutures: 67e0e8cd974ab9f6c04650cc64153f7adf1ec489
-  IAR-Core: 1677f38d2877055ba8c452c3728bbf59635b7d85
-  IAR-NFC: 72f7f72814d7bf63eedd5e6a74121347af0d932f
-  IAR-Surface: abb4f5e4f4a3ea0f59d7986a228f1ea991019bd1
+  ImagineAR-Core: c64ae885e1c7a9d0735f9e1e71e019cdd01e2a4e
+  ImagineAR-NFC: 6868847bfcb0553c041d219045f29e2555e51f6c
+  ImagineAR-Surface: b35164ff24c2dbb8ae51d8e4e3f9fa82b8f6687a
   Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
@@ -86,6 +84,6 @@ SPEC CHECKSUMS:
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 39881a17c30697981702bf92afb63d658417653e
+PODFILE CHECKSUM: b2715e869d079a85d03526e037c1e2fffde55460
 
 COCOAPODS: 1.11.2

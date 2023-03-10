@@ -54,6 +54,9 @@ projectDirectories+=( "IAR-CoreSDK-Sample" "IAR-SurfaceSDK-Sample" "IAR-TargetSD
 for directory in ${projectDirectories[@]}; do
     # install pods on each project
     cd ${directory}
+    bundle
+    bundle update
+    bundle install
     bundle exec pod deintegrate
     bundle exec pod install --repo-update
     cd ..
