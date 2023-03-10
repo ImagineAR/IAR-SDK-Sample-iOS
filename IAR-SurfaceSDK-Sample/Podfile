@@ -12,13 +12,14 @@ def pod_common
   # Simple progress dialog ontop, used for quickly showing a 'busy state'
   # while downloading assets and other network intensive operations
   pod 'RappleProgressHUD',    '~> 4.1'
-  pod_surfaceSample_beta
+  #pod_surfaceSample_beta
+  pod_surfaceSample
 end
 
 def pod_surfaceSample
-  pod 'ImagineAR-Core',       '1.6.9'
-  pod 'ImagineAR-Surface',    '1.6.9'
-  pod 'ImagineAR-NFC',        '1.6.9'
+  pod 'ImagineAR-Core',       '1.6.12'
+  pod 'ImagineAR-Surface',    '1.6.12'
+  pod 'ImagineAR-NFC',        '1.6.12'
 end
 
 def pod_surfaceSample_beta

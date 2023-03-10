@@ -53,6 +53,9 @@ commands:
         type: string
     steps:
       - run:
+          name: Update bundle
+          command: bundle install
+      - run:
           name: Install CocoaPods
           command: bundle exec pod install --project-directory=./<< parameters.project-directory >>
   install_bundle_dependencies:
