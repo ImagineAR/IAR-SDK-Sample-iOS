@@ -16,20 +16,20 @@ PODS:
     - AFNetworking/NSURLSession
   - Alamofire (4.9.1)
   - BrightFutures (8.2.0)
-  - ImagineAR-Core (1.6.14):
+  - ImagineAR-Core (1.6.18):
     - AFNetworking (~> 4.0.1)
     - Moya (~> 13.0.1)
     - R.swift (~> 6.1.0)
-    - SnapKit (~> 5.6.0)
-  - ImagineAR-Surface (1.6.14):
+    - SnapKit (~> 5.0.1)
+  - ImagineAR-Surface (1.6.18):
     - BrightFutures (~> 8.2.0)
-    - ImagineAR-Core (= 1.6.14)
-  - ImagineAR-Target (1.6.14):
-    - ImagineAR-Core (= 1.6.14)
-  - ImagineAR-UI-SDK (0.1.2):
-    - ImagineAR-Core (~> 1.6.0)
-    - ImagineAR-Surface (~> 1.6.0)
-    - ImagineAR-Target (~> 1.6.0)
+    - ImagineAR-Core (= 1.6.18)
+  - ImagineAR-Target (1.6.18):
+    - ImagineAR-Core (= 1.6.18)
+  - ImagineAR-UI (1.6.18):
+    - ImagineAR-Core (= 1.6.18)
+    - ImagineAR-Surface (= 1.6.18)
+    - ImagineAR-Target (= 1.6.18)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
@@ -39,10 +39,10 @@ PODS:
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
   - Result (4.1.0)
-  - SnapKit (5.6.0)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - ImagineAR-UI-SDK
+  - ImagineAR-UI (= 1.6.18)
 
 SPEC REPOS:
   trunk:
@@ -52,7 +52,7 @@ SPEC REPOS:
     - ImagineAR-Core
     - ImagineAR-Surface
     - ImagineAR-Target
-    - ImagineAR-UI-SDK
+    - ImagineAR-UI
     - Moya
     - R.swift
     - R.swift.Library
@@ -63,16 +63,16 @@ SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BrightFutures: 67e0e8cd974ab9f6c04650cc64153f7adf1ec489
-  ImagineAR-Core: 2333299d2fbf292120627d7e1605f8801b39f44a
-  ImagineAR-Surface: ac83143ff26578c9235ba6fdf0e11458f24dd3ed
-  ImagineAR-Target: cfbfdbdb95b3bcc769a861b361ac9e398e614fbb
-  ImagineAR-UI-SDK: 7b9668e9264353c5fa65ef1004a5140a2bc21aa1
+  ImagineAR-Core: c48f58e5749f55ff174cbb1add4ad64ab24c3b02
+  ImagineAR-Surface: 5af106d5c79790dfb2f3ba10b0b4512ff87433cb
+  ImagineAR-Target: 81ebcb61cd92148af3de67cd72cc283a0dd5e776
+  ImagineAR-UI: 2af8dcb3f958d84fa1df0fd5d71d2a1f274bd9fb
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 4574c9ffaa0f32150edd177756afeb73574ba46e
+PODFILE CHECKSUM: 2f5f0500bad5e43c9531bc59e7476c84039bad7a
 
 COCOAPODS: 1.11.2

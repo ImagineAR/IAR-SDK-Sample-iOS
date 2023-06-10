@@ -7,11 +7,11 @@ def pod_sampleApp
   # https://github.com/onevcat/Kingfisher
   # Kingfisher is an image-centric library: used in the sample app for
   # filesystem caching, download management and jpg progressive loading
-  pod 'Kingfisher',         '7.0.0'
+  pod 'Kingfisher',         '7.7.0'
 end
 
 def pod_core
-  pod 'ImagineAR-Core',     '1.6.12'
+  pod 'ImagineAR-Core',     '1.6.18'
 end
 
 def pod_core_beta
