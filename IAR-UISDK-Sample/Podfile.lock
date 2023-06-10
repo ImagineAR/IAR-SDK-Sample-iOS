@@ -1,0 +1,78 @@
+PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
+  - Alamofire (4.9.1)
+  - BrightFutures (8.2.0)
+  - ImagineAR-Core (1.6.14):
+    - AFNetworking (~> 4.0.1)
+    - Moya (~> 13.0.1)
+    - R.swift (~> 6.1.0)
+    - SnapKit (~> 5.6.0)
+  - ImagineAR-Surface (1.6.14):
+    - BrightFutures (~> 8.2.0)
+    - ImagineAR-Core (= 1.6.14)
+  - ImagineAR-Target (1.6.14):
+    - ImagineAR-Core (= 1.6.14)
+  - ImagineAR-UI-SDK (0.1.2):
+    - ImagineAR-Core (~> 1.6.0)
+    - ImagineAR-Surface (~> 1.6.0)
+    - ImagineAR-Target (~> 1.6.0)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - R.swift (6.1.0):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
+  - Result (4.1.0)
+  - SnapKit (5.6.0)
+
+DEPENDENCIES:
+  - ImagineAR-UI-SDK
+
+SPEC REPOS:
+  trunk:
+    - AFNetworking
+    - Alamofire
+    - BrightFutures
+    - ImagineAR-Core
+    - ImagineAR-Surface
+    - ImagineAR-Target
+    - ImagineAR-UI-SDK
+    - Moya
+    - R.swift
+    - R.swift.Library
+    - Result
+    - SnapKit
+
+SPEC CHECKSUMS:
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  BrightFutures: 67e0e8cd974ab9f6c04650cc64153f7adf1ec489
+  ImagineAR-Core: 2333299d2fbf292120627d7e1605f8801b39f44a
+  ImagineAR-Surface: ac83143ff26578c9235ba6fdf0e11458f24dd3ed
+  ImagineAR-Target: cfbfdbdb95b3bcc769a861b361ac9e398e614fbb
+  ImagineAR-UI-SDK: 7b9668e9264353c5fa65ef1004a5140a2bc21aa1
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+
+PODFILE CHECKSUM: 4574c9ffaa0f32150edd177756afeb73574ba46e
+
+COCOAPODS: 1.11.2

@@ -50,7 +50,7 @@ bundle exec pod setup
 bundle exec pod repo add IAR-Beta git@github.com:ImagineAR/IAR-SDK-Beta-Podspecs.git
 
 echo "📚 - Starting pod updates on all projects..."
-projectDirectories+=( "IAR-CoreSDK-Sample" "IAR-SurfaceSDK-Sample" "IAR-TargetSDK-Sample")
+projectDirectories+=( "IAR-CoreSDK-Sample" "IAR-SurfaceSDK-Sample" "IAR-TargetSDK-Sample" "IAR-UISDK-Sample")
 for directory in ${projectDirectories[@]}; do
     # install pods on each project
     cd ${directory}

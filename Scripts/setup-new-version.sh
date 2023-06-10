@@ -10,7 +10,7 @@ if [ -z $marketingVersion ]; then
     exit 1;
 fi
 
-projectDirectories+=( "IAR-CoreSDK-Sample" "IAR-SurfaceSDK-Sample" "IAR-TargetSDK-Sample" )
+projectDirectories+=( "IAR-CoreSDK-Sample" "IAR-SurfaceSDK-Sample" "IAR-TargetSDK-Sample" "IAR-UISDK-Sample" )
 for cmd in ${projectDirectories[@]}; do
     cd ${cmd}
     agvtool bump -all && agvtool new-marketing-version $marketingVersion;
