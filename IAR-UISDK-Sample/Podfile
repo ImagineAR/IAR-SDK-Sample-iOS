@@ -6,7 +6,7 @@ target 'IAR-DropIn_Example' do
   use_frameworks!
   inhibit_all_warnings!  # ignore warnings emmited from pod sources
   # pod 'IAR-DropIn', :path => '../'
-  pod 'ImagineAR-UI',  '1.6.18'
+  pod 'ImagineAR-UI',  '1.6.22'
 
   target 'IAR-DropIn_Tests' do
     inherit! :search_paths
