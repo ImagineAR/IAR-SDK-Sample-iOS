@@ -16,15 +16,15 @@ PODS:
     - AFNetworking/NSURLSession
   - Alamofire (4.9.1)
   - BrightFutures (8.2.0)
-  - ImagineAR-Core (1.6.18):
+  - ImagineAR-Core (1.6.22):
     - AFNetworking (~> 4.0.1)
     - Moya (~> 13.0.1)
     - R.swift (~> 6.1.0)
-    - SnapKit (~> 5.0.1)
-  - ImagineAR-NFC (1.6.18)
-  - ImagineAR-Surface (1.6.18):
+    - SnapKit (~> 5.6.0)
+  - ImagineAR-NFC (1.6.22)
+  - ImagineAR-Surface (1.6.22):
     - BrightFutures (~> 8.2.0)
-    - ImagineAR-Core (= 1.6.18)
+    - ImagineAR-Core (= 1.6.22)
   - Kingfisher (7.7.0)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
@@ -38,12 +38,12 @@ PODS:
   - R.swift.Library (5.3.0)
   - RappleProgressHUD (4.1)
   - Result (4.1.0)
-  - SnapKit (5.0.1)
+  - SnapKit (5.6.0)
 
 DEPENDENCIES:
-  - ImagineAR-Core (= 1.6.18)
-  - ImagineAR-NFC (= 1.6.18)
-  - ImagineAR-Surface (= 1.6.18)
+  - ImagineAR-Core (= 1.6.22)
+  - ImagineAR-NFC (= 1.6.22)
+  - ImagineAR-Surface (= 1.6.22)
   - Kingfisher (~> 7.7.0)
   - Nimble (~> 9.2.1)
   - Quick (~> 4.0.0)
@@ -71,9 +71,9 @@ SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BrightFutures: 67e0e8cd974ab9f6c04650cc64153f7adf1ec489
-  ImagineAR-Core: c48f58e5749f55ff174cbb1add4ad64ab24c3b02
-  ImagineAR-NFC: 7fc4e227e34553b47f4f808e4b80e104b452c197
-  ImagineAR-Surface: 5af106d5c79790dfb2f3ba10b0b4512ff87433cb
+  ImagineAR-Core: 27e0cb8c009b6e23898a933941c51c963628cf7c
+  ImagineAR-NFC: ebca81482546416297ff62027610875b04f08f55
+  ImagineAR-Surface: 968e61509e0c173544916e7181d5101038c6a8c6
   Kingfisher: f043ac666dfc96c1f37604f93effb45a7ee3a3e1
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
@@ -82,8 +82,8 @@ SPEC CHECKSUMS:
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   RappleProgressHUD: f29bc5dc5f9834c2caa9c2ae21ba11f3ff2b5a85
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 69afc24815f56110fc29edda7de2016f0c2a5ea1
+PODFILE CHECKSUM: 4de00a1be1498daf38475025d8afae8a506b5c97
 
 COCOAPODS: 1.11.2

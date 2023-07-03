@@ -16,20 +16,20 @@ PODS:
     - AFNetworking/NSURLSession
   - Alamofire (4.9.1)
   - BrightFutures (8.2.0)
-  - ImagineAR-Core (1.6.18):
+  - ImagineAR-Core (1.6.22):
     - AFNetworking (~> 4.0.1)
     - Moya (~> 13.0.1)
     - R.swift (~> 6.1.0)
-    - SnapKit (~> 5.0.1)
-  - ImagineAR-Surface (1.6.18):
+    - SnapKit (~> 5.6.0)
+  - ImagineAR-Surface (1.6.22):
     - BrightFutures (~> 8.2.0)
-    - ImagineAR-Core (= 1.6.18)
-  - ImagineAR-Target (1.6.18):
-    - ImagineAR-Core (= 1.6.18)
-  - ImagineAR-UI (1.6.18):
-    - ImagineAR-Core (= 1.6.18)
-    - ImagineAR-Surface (= 1.6.18)
-    - ImagineAR-Target (= 1.6.18)
+    - ImagineAR-Core (= 1.6.22)
+  - ImagineAR-Target (1.6.22):
+    - ImagineAR-Core (= 1.6.22)
+  - ImagineAR-UI (1.6.22):
+    - ImagineAR-Core (= 1.6.22)
+    - ImagineAR-Surface (= 1.6.22)
+    - ImagineAR-Target (= 1.6.22)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
@@ -39,10 +39,10 @@ PODS:
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
   - Result (4.1.0)
-  - SnapKit (5.0.1)
+  - SnapKit (5.6.0)
 
 DEPENDENCIES:
-  - ImagineAR-UI (= 1.6.18)
+  - ImagineAR-UI (= 1.6.22)
 
 SPEC REPOS:
   trunk:
@@ -63,16 +63,16 @@ SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BrightFutures: 67e0e8cd974ab9f6c04650cc64153f7adf1ec489
-  ImagineAR-Core: c48f58e5749f55ff174cbb1add4ad64ab24c3b02
-  ImagineAR-Surface: 5af106d5c79790dfb2f3ba10b0b4512ff87433cb
-  ImagineAR-Target: 81ebcb61cd92148af3de67cd72cc283a0dd5e776
-  ImagineAR-UI: 2af8dcb3f958d84fa1df0fd5d71d2a1f274bd9fb
+  ImagineAR-Core: 27e0cb8c009b6e23898a933941c51c963628cf7c
+  ImagineAR-Surface: 968e61509e0c173544916e7181d5101038c6a8c6
+  ImagineAR-Target: d1575426e4e307863544d1961486e4cd2615e39f
+  ImagineAR-UI: fe70db35743e7a074566eb778b4872fe44cec903
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 2f5f0500bad5e43c9531bc59e7476c84039bad7a
+PODFILE CHECKSUM: d05b38360c9c1f99a6fe5c987e828c707b925ef7
 
 COCOAPODS: 1.11.2

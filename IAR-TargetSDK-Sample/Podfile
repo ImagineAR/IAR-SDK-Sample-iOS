@@ -3,8 +3,8 @@ source 'https://cdn.cocoapods.org/'
 platform :ios, '13.0'
 
 def pod_targetSample
-  pod 'ImagineAR-Core',     '1.6.18'
-  pod 'ImagineAR-Target',   '1.6.18'
+  pod 'ImagineAR-Core',     '1.6.22'
+  pod 'ImagineAR-Target',   '1.6.22'
 end
 
 def pod_targetSample_beta
